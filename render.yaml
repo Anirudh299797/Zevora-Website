@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: zevora-jewellery
+    runtime: static
+    staticPublishPath: .
