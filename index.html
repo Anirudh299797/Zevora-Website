@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZEVORA — Global Fine Jewellery</title>
+<title>ZEVORA | Wear Your Story — Jewellery & Design Studio</title>
+<meta name="description" content="Discover ZEVORA jewellery, curated global collections, personal design briefs and illustrative virtual ring try-on.">
+<meta name="theme-color" content="#0c0b0a">
 <style>
 :root{--bg:#090a0c;--panel:#111318;--panel2:#171a20;--ink:#f8f4eb;--muted:#a9a39a;--gold:#e9c978;--line:#292d35;--ok:#a5edb6}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 82% -10%,rgba(233,201,120,.14),transparent 35%),var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif}
@@ -61,13 +63,24 @@ nav{background:#0c0b0aef}
 .preview img,.card img{cursor:zoom-in}
 @media(max-width:800px){.signature-grid{grid-template-columns:1fr}.edit-tile,.edit-tile:nth-child(4),.edit-tile:nth-child(5){grid-column:span 3;height:270px}.hero{min-height:0}}
 @media(max-width:540px){.edit-tile,.edit-tile:nth-child(4),.edit-tile:nth-child(5){grid-column:span 6;height:270px}.sig-fields{grid-template-columns:1fr}.hero h1{font-size:48px}.edit-content strong{font-size:26px}}
+
+.announcement{background:#d8b87c;color:#15110c;text-align:center;padding:9px 12px;font-size:10px;font-weight:750;letter-spacing:.18em}
+.announcement span{margin:0 14px}.brand{text-decoration:none;color:#f8f4eb}.brand small{display:block;font:8px system-ui,sans-serif;letter-spacing:.26em;color:#d8b87c;margin-top:5px}
+.hero{padding-top:64px;padding-bottom:70px}.hero h1 i{color:#d8b87c}.hero .lead{max-width:560px;font-size:16px;line-height:1.8}
+.trustline{display:flex;justify-content:space-between;gap:14px;border-block:1px solid #50412a;padding:18px 4px;font-size:10px;letter-spacing:.13em;color:#dbc5a1;flex-wrap:wrap}
+.editorial-quote{margin:48px 0;padding:64px 20px;text-align:center;border-top:1px solid #3d3224;border-bottom:1px solid #3d3224;background:radial-gradient(ellipse at 50% 40%,#34251b,transparent 75%)}
+.editorial-quote p{font:clamp(30px,4.2vw,60px)/1.2 Georgia,serif;margin:20px 0 30px}.editorial-quote em{color:#e1c083}
+.card-photo{position:relative}.card-zoom{position:absolute;top:8px;right:8px;border:1px solid #d5b87c80;border-radius:50%;width:35px;height:35px;background:#0c0b0ac9;color:#f6e4b9;cursor:zoom-in;z-index:2}
+.card img{width:100%;display:block}.card-photo img{width:100%}.site-footer{border-top:1px solid #4a3a27;margin-top:60px;padding:55px 0 25px;text-align:center}.footer-brand{font:38px Georgia,serif;letter-spacing:.22em;color:#e3c487}.footer-brand span{font-size:20px}.site-footer p{font:italic 21px Georgia,serif;color:#d8c7ae}.site-footer div{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0}.site-footer button{border:1px solid #544633;border-radius:50px;background:transparent;color:#eee2cb;padding:9px 14px;cursor:pointer}.site-footer small{font-size:11px;color:#a8a092}
+@media(max-width:540px){.announcement{font-size:8px;letter-spacing:.08em}.announcement span{margin:0 3px}.navright{gap:5px}.navright .btn{padding:8px}.brand{font-size:17px}.brand small{font-size:7px}.loc{padding:4px}.loc select{max-width:108px;font-size:12px}.hero{padding-top:35px;padding-bottom:42px}.trustline{justify-content:center;font-size:9px}.editorial-quote{padding:45px 10px}}
 </style>
 </head>
 <body>
+<div class="announcement">THE ZEVORA EDIT <span>✦</span> Jewellery inspired by the world, styled by you <span>✦</span> EXPLORE YOUR SIGNATURE</div>
 <div class="app">
 <nav>
-<div class="brand"><div class="logo">Z</div>ZEVORA</div>
-<div class="navright">
+<a class="brand" href="#top" aria-label="ZEVORA home"><div class="logo">Z</div><span>ZEVORA<small>JEWELLERY STUDIO</small></span></a>
+<div class="navright"><button class="btn hide-sm" onclick="go('edits')">Collections</button><button class="btn hide-sm" onclick="go('signature')">Design Studio</button>
  <div class="loc">📍<select id="countrySelect"></select></div>
  <button class="btn hide-sm" onclick="go('collection')">Real Designs</button>
  <button class="btn hide-sm" onclick="go('tryon')">Try-On</button>
@@ -75,11 +88,12 @@ nav{background:#0c0b0aef}
 </div>
 </nav>
 
-<section class="hero">
+<main id="top"><section class="hero">
 <div><div class="kicker">ZEVORA / THE NEW JEWELLERY EDIT</div><h1>Wear your story.<br><i>Make it yours.</i></h1><p class="lead">Discover expressive pieces, modern heirlooms and jewellery inspired by traditions across the world. Explore the edit, save favourites and view indicative pricing in your local currency.</p><div class="actions"><button class="gold" onclick="go('collection')">Shop Real Designs</button><button class="btn" onclick="go('studio')">Find My Design</button></div></div>
 <div class="hero-photo"><img id="heroImg"><div class="hero-cap"><span class="hero-price" id="heroPrice"></span><b id="heroName"></b><span id="heroDesc"></span></div></div>
 </section>
 
+<div class="trustline"><span>✧ WORLD-INSPIRED DESIGNS</span><span>✧ PERSONAL STYLE STUDIO</span><span>✧ EXPLORE BEFORE YOU ENQUIRE</span></div>
 <section class="section" id="edits"><div class="head"><div><div class="kicker">THE ZEVORA EDIT</div><h2>Find your kind of brilliance.</h2></div><div class="sub">Curated collections · explore in one tap</div></div>
 <div class="edit-grid">
 <button class="edit-tile" data-edit="Sculptural Gold"><img src="/gold_bangle.jpg" alt="Sculptural gold jewellery"><span class="edit-content"><small>01 / THE BOLD EDIT</small><strong>Sculptural Gold</strong><em>Statement silhouettes &amp; modern gold</em></span></button>
@@ -88,6 +102,7 @@ nav{background:#0c0b0aef}
 <button class="edit-tile" data-edit="Colour Stories"><img src="/emerald_halo.jpg" alt="Emerald and diamond ring"><span class="edit-content"><small>04 / GEMSTONE OBSESSION</small><strong>Colour Stories</strong><em>Emeralds, rubies &amp; sapphires</em></span></button>
 <button class="edit-tile" data-edit="Modern Icons"><img src="/mens_ring.jpg" alt="Modern signet ring"><span class="edit-content"><small>05 / YOUR SIGNATURE</small><strong>Modern Icons</strong><em>Minimalist &amp; unisex pieces</em></span></button>
 </div></section>
+<section class="editorial-quote"><div class="kicker">THE ART OF PERSONAL EXPRESSION</div><p>Not just something you wear.<br><em>Something you carry with you.</em></p><button class="gold" onclick="go('signature')">Create your signature →</button></section>
 <section class="section" id="collection">
 <div class="head"><div><div class="kicker">Real Jewellery Library</div><h2>The jewellery edit · global inspiration</h2></div><div class="sub" id="resultCount"></div></div>
 <div class="toolbar"><div class="search"><input id="search" placeholder="Search temple, emerald, pearl, Celtic, sapphire…"></div>
@@ -131,8 +146,9 @@ nav{background:#0c0b0aef}
 </div>
 </section>
 
-<section class="section"><div class="head"><div><div class="kicker">Moodboard</div><h2>Saved designs</h2></div></div><div id="saved" class="saved"></div></section>
+<section class="section" id="moodboard"><div class="head"><div><div class="kicker">Moodboard</div><h2>Saved designs</h2></div></div><div id="saved" class="saved"></div></section>
 </div>
+<footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Jewellery for the stories only you can tell.</p><div><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('tryon')">Ring Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA</small></footer></main>
 <div class="zoom-modal" id="zoomModal" role="dialog" aria-modal="true" aria-label="Jewellery detail image" hidden><button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button><img id="zoomImg" alt="Jewellery close-up"></div>
 
 <div class="modal" id="loginModal"><div class="modalcard" style="max-width:430px"><div class="modalhead"><h2>Admin Access</h2><button class="btn" onclick="closeLogin()">Close</button></div><label style="display:block;margin-top:16px;color:var(--muted);font-size:12px">Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN" style="width:100%;margin-top:7px;border:1px solid var(--line);background:#0e1014;color:#fff;padding:12px;border-radius:13px"><div class="actions"><button class="gold" id="loginBtn">Unlock Pricing</button></div><div class="notice">Default local-demo PIN: <b>2468</b>. Change it after login. This PIN protects the local app UI only; a public production website needs server-side authentication.</div></div></div>
@@ -154,7 +170,7 @@ const IMAGES={"arabic_filigree_ring.png": "/arabic_filigree_ring.jpg", "bridal_n
 const catalog=[{"id": "kundan", "name": "Royal Kundan Ring", "file": "kundan_ring.png", "type": "Ring", "region": "South Asian", "style": "Kundan", "material": "22K Gold", "weight": 10.5, "gem": "Ruby + Diamond", "stoneAUD": 1450, "craftAUD": 620, "keywords": "kundan royal indian bridal ruby diamond ornate"}, {"id": "temple-ring", "name": "Temple Ruby Ring", "file": "royal_temple_ring.png", "type": "Ring", "region": "South Asian", "style": "Temple", "material": "22K Gold", "weight": 12.0, "gem": "Ruby", "stoneAUD": 900, "craftAUD": 850, "keywords": "temple south indian heritage ruby gold traditional"}, {"id": "temple-necklace", "name": "Temple Heritage Necklace", "file": "temple_necklace.png", "type": "Necklace", "region": "South Asian", "style": "Temple", "material": "22K Gold", "weight": 44.0, "gem": "Ruby + Pearl", "stoneAUD": 2300, "craftAUD": 1900, "keywords": "temple necklace south asian bridal heritage"}, {"id": "heritage-earrings", "name": "Heritage Jhumka Earrings", "file": "heritage_earrings.png", "type": "Earrings", "region": "South Asian", "style": "Heritage", "material": "22K Gold", "weight": 18.0, "gem": "Diamond", "stoneAUD": 1200, "craftAUD": 1100, "keywords": "jhumka temple earrings indian south asian heritage"}, {"id": "arabic", "name": "Arabesque Filigree Ring", "file": "arabic_filigree_ring.png", "type": "Ring", "region": "Middle East & North Africa", "style": "Filigree", "material": "18K Gold", "weight": 9.5, "gem": "Ruby + Diamond", "stoneAUD": 1150, "craftAUD": 780, "keywords": "arabic arabesque filigree middle east mena ruby gold"}, {"id": "pearl", "name": "Japanese Pearl Drops", "file": "pearl_drop_earrings.png", "type": "Earrings", "region": "East Asian", "style": "Modern Pearl", "material": "18K Gold", "weight": 7.0, "gem": "Pearl + Diamond", "stoneAUD": 720, "craftAUD": 450, "keywords": "japan japanese pearl drop earrings east asian"}, {"id": "celtic", "name": "Celtic Knot Ring", "file": "celtic_knot_ring.png", "type": "Ring", "region": "Europe & Atlantic", "style": "Celtic Knot", "material": "18K Gold", "weight": 8.0, "gem": "None", "stoneAUD": 0, "craftAUD": 560, "keywords": "celtic ireland knot european atlantic ring"}, {"id": "oval-halo", "name": "Classic Oval Halo", "file": "oval_halo.png", "type": "Ring", "region": "Europe & Atlantic", "style": "Classic Halo", "material": "18K White Gold", "weight": 7.2, "gem": "Diamond", "stoneAUD": 2050, "craftAUD": 590, "keywords": "classic european oval halo diamond engagement"}, {"id": "solitaire", "name": "Modern Solitaire", "file": "modern_solitaire.png", "type": "Ring", "region": "North American", "style": "Modern Bridal", "material": "Platinum", "weight": 8.5, "gem": "Diamond", "stoneAUD": 1850, "craftAUD": 520, "keywords": "usa american solitaire engagement modern bridal diamond"}, {"id": "solitaire2", "name": "Solitaire Elegance", "file": "solitaire_elegance.png", "type": "Ring", "region": "North American", "style": "Minimal Luxe", "material": "18K White Gold", "weight": 6.8, "gem": "Diamond", "stoneAUD": 1650, "craftAUD": 470, "keywords": "american usa solitaire elegant minimal diamond"}, {"id": "emerald", "name": "Emerald Halo Ring", "file": "emerald_ring.png", "type": "Ring", "region": "Global Contemporary", "style": "Gemstone Halo", "material": "18K Gold", "weight": 8.0, "gem": "Emerald + Diamond", "stoneAUD": 1900, "craftAUD": 650, "keywords": "emerald halo contemporary ring green gemstone"}, {"id": "sapphire", "name": "Sapphire Dream Ring", "file": "sapphire_ring.png", "type": "Ring", "region": "Global Contemporary", "style": "Vintage Halo", "material": "18K Rose Gold", "weight": 8.2, "gem": "Sapphire + Diamond", "stoneAUD": 1950, "craftAUD": 680, "keywords": "sapphire blue vintage halo rose gold ring"}, {"id": "sapphire-bracelet", "name": "Sapphire Tennis Bracelet", "file": "sapphire_bracelet.png", "type": "Bracelet", "region": "Global Contemporary", "style": "Tennis Luxe", "material": "18K White Gold", "weight": 13.5, "gem": "Sapphire + Diamond", "stoneAUD": 2550, "craftAUD": 850, "keywords": "sapphire bracelet tennis luxury contemporary"}, {"id": "bangle", "name": "Diamond Gold Bangle", "file": "gold_bangle.png", "type": "Bracelet", "region": "North American", "style": "Everyday Luxe", "material": "18K Gold", "weight": 21.0, "gem": "Diamond", "stoneAUD": 1400, "craftAUD": 720, "keywords": "gold bangle diamond everyday luxury american"}, {"id": "bridal-necklace", "name": "Diamond Bridal Necklace", "file": "bridal_necklace.png", "type": "Necklace", "region": "Global Contemporary", "style": "Bridal", "material": "18K White Gold", "weight": 32.0, "gem": "Diamond", "stoneAUD": 5200, "craftAUD": 1600, "keywords": "diamond bridal necklace luxury global"}, {"id": "minimal-necklace", "name": "Minimal Diamond Pendant", "file": "minimal_necklace.png", "type": "Necklace", "region": "Pacific", "style": "Island Minimal", "material": "18K White Gold", "weight": 5.0, "gem": "Diamond", "stoneAUD": 520, "craftAUD": 300, "keywords": "pacific minimal pendant diamond necklace ocean island"}, {"id": "gold-earrings", "name": "Modern Gold Hoops", "file": "gold_earrings.png", "type": "Earrings", "region": "Latin American", "style": "Modern Heritage", "material": "18K Gold", "weight": 9.0, "gem": "Diamond", "stoneAUD": 680, "craftAUD": 420, "keywords": "latin american modern heritage gold hoops earrings"}, {"id": "mens", "name": "Sculptural Men's Ring", "file": "mens_ring.png", "type": "Ring", "region": "African", "style": "Sculptural Metal", "material": "Platinum", "weight": 12.0, "gem": "None", "stoneAUD": 0, "craftAUD": 720, "keywords": "african sculptural metal bold mens ring contemporary"}, {"id": "emerald-halo", "name": "Emerald Statement Ring", "file": "emerald_halo.png", "type": "Ring", "region": "Global Contemporary", "style": "Emerald Statement", "material": "18K White Gold", "weight": 9.0, "gem": "Emerald + Diamond", "stoneAUD": 2300, "craftAUD": 700, "keywords": "emerald statement halo diamond ring"}];
 const DEFAULTS={"rates": {"24K Gold": 145.0, "22K Gold": 133.0, "18K Gold": 109.0, "18K White Gold": 112.0, "18K Rose Gold": 111.0, "Platinum": 58.0, "Silver": 1.75}, "markup": 22, "labourMultiplier": 1.0, "countries": {"AU": {"name": "Australia", "currency": "AUD", "symbol": "A$", "fx": 1.0, "tax": 10}, "IN": {"name": "India", "currency": "INR", "symbol": "\u20b9", "fx": 55.0, "tax": 3}, "US": {"name": "United States", "currency": "USD", "symbol": "$", "fx": 0.66, "tax": 0}, "GB": {"name": "United Kingdom", "currency": "GBP", "symbol": "\u00a3", "fx": 0.5, "tax": 20}, "CA": {"name": "Canada", "currency": "CAD", "symbol": "C$", "fx": 0.9, "tax": 5}, "NZ": {"name": "New Zealand", "currency": "NZD", "symbol": "NZ$", "fx": 1.09, "tax": 15}, "AE": {"name": "United Arab Emirates", "currency": "AED", "symbol": "AED ", "fx": 2.42, "tax": 5}, "SG": {"name": "Singapore", "currency": "SGD", "symbol": "S$", "fx": 0.86, "tax": 9}, "JP": {"name": "Japan", "currency": "JPY", "symbol": "\u00a5", "fx": 98.0, "tax": 10}, "EU": {"name": "European Union", "currency": "EUR", "symbol": "\u20ac", "fx": 0.57, "tax": 20}}, "adminPin": "2468"};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let settings=loadSettings(), selected=catalog[0], filter="All", activeEdit="", matchIndex=0, stream=null, drag=false, tryMode="ring", country="AU";
+let settings=loadSettings(), selected=catalog[0], filter="All", matchIndex=0, stream=null, drag=false, tryMode="ring", country="AU", activeEdit=null;
 
 function clone(x){return JSON.parse(JSON.stringify(x))}
 function loadSettings(){try{return Object.assign(clone(DEFAULTS),JSON.parse(localStorage.getItem("aaPricingSettings")||"{}"))}catch(e){return clone(DEFAULTS)}}
@@ -169,8 +185,8 @@ function breakdown(d){let x=settings.countries[country],base=calcAUD(d);return `
 function detectCountry(){let lang=(navigator.language||"").toUpperCase(),tz="";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){};if(lang.includes("-AU")||tz.startsWith("Australia/"))return"AU";if(lang.includes("-IN")||tz==="Asia/Kolkata")return"IN";if(lang.includes("-GB")||tz==="Europe/London")return"GB";if(lang.includes("-NZ")||tz.startsWith("Pacific/Auckland"))return"NZ";if(lang.includes("-CA"))return"CA";if(lang.includes("-SG")||tz==="Asia/Singapore")return"SG";if(lang.includes("-JP")||tz==="Asia/Tokyo")return"JP";if(lang.includes("-AE")||tz==="Asia/Dubai")return"AE";if(lang.includes("-US"))return"US";return"AU"}
 function fillCountries(){let s=$("#countrySelect"),h="";Object.entries(settings.countries).forEach(([k,v])=>h+=`<option value="${k}">${v.name} · ${v.currency}</option>`);s.innerHTML=h;country=detectCountry();if(!settings.countries[country])country="AU";s.value=country}
 function selectDesign(d,scroll=false){selected=d;$("#heroImg").src=IMAGES[d.file];$("#heroName").textContent=d.name;$("#heroDesc").textContent=d.region+" · "+d.style+" · "+d.gem;$("#previewImg").src=IMAGES[d.file];onRingSelected();$("#heroPrice").textContent=money(calcLocal(d),country);$("#previewMeta").innerHTML=[d.name,d.type,d.region,d.style,d.material,d.gem].map(x=>`<span class="chip">${x}</span>`).join("");$("#designId").textContent="ZEVORA · "+d.id.toUpperCase();$("#studioPrice").textContent=money(calcLocal(d),country);$("#priceCountry").textContent=settings.countries[country].name;$("#priceBreakdown").textContent=breakdown(d);renderCatalog();if(scroll)go("studio")}
-function renderCatalog(){let q=$("#search").value.toLowerCase().trim(),a=catalog.filter(d=>(filter==="All"||d.type===filter)&&(!activeEdit||EDITS[activeEdit].terms.some(t=>(d.name+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(t)))&&(!q||(d.name+" "+d.region+" "+d.style+" "+d.material+" "+d.gem+" "+d.keywords).toLowerCase().includes(q)));$("#resultCount").textContent=(activeEdit?activeEdit+" · ":"")+a.length+" designs";$("#catalog").innerHTML=a.map(d=>`<article class="card ${d.id===selected.id?"selected":""}" data-id="${d.id}"><img src="${IMAGES[d.file]}" alt="${d.name}"><h3>${d.name}</h3><p>${d.region} · ${d.style}</p><div class="card-row"><span class="chip">${d.gem}</span><span class="price">${money(calcLocal(d),country)}</span></div></article>`).join("")||'<div class="empty">No matching designs.</div>';$$(".card").forEach(c=>c.onclick=()=>selectDesign(catalog.find(d=>d.id===c.dataset.id),true))}
-$("#search").oninput=()=>{activeEdit="";renderCatalog()};$$(".filter").forEach(b=>b.onclick=()=>{activeEdit="";$$(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;renderCatalog()});
+function renderCatalog(){let q=$("#search").value.toLowerCase().trim(),a=catalog.filter(d=>(filter==="All"||d.type===filter)&&(!q||(d.name+" "+d.region+" "+d.style+" "+d.material+" "+d.gem+" "+d.keywords).toLowerCase().includes(q))&&(!activeEdit||activeEdit.terms.some(t=>(d.name+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(t))));$("#resultCount").textContent=(activeEdit?activeEdit.label+" · ":"")+a.length+" designs";$("#catalog").innerHTML=a.map(d=>`<article class="card ${d.id===selected.id?"selected":""}" data-id="${d.id}"><div class="card-photo"><img src="${IMAGES[d.file]}" alt="${d.name}" loading="lazy"><button class="card-zoom" type="button" data-zoom="${d.file}" aria-label="Enlarge ${d.name}">↗</button></div><h3>${d.name}</h3><p>${d.region} · ${d.style}</p><div class="card-row"><span class="chip">${d.gem}</span><span class="price">${money(calcLocal(d),country)}</span></div></article>`).join("")||'<div class="empty">No matching designs.</div>';$$(".card").forEach(c=>c.onclick=e=>{if(e.target.closest(".card-zoom"))return;selectDesign(catalog.find(d=>d.id===c.dataset.id),true)})}
+$("#search").oninput=()=>{activeEdit=null;renderCatalog()};$$(".filter").forEach(b=>b.onclick=()=>{$$(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;activeEdit=null;renderCatalog()});
 function score(d){let s=0,t=$("#type").value,r=$("#region").value,g=$("#gem").value,b=$("#brief").value.toLowerCase();if(t!=="Any"&&d.type===t)s+=5;if(r!=="Any"&&d.region===r)s+=6;if(g!=="Any"&&d.gem.toLowerCase().includes(g.toLowerCase()))s+=4;for(const w of b.split(/\s+/)){if(w.length>2&&(d.name+" "+d.region+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(w))s+=1}return s}
 function matches(){return [...catalog].sort((a,b)=>score(b)-score(a))}
 function findBest(next=false){let m=matches();if(!next)matchIndex=0;else matchIndex=(matchIndex+1)%m.length;selectDesign(m[matchIndex]);$("#matchStatus").textContent=`Matched to ${selected.name} — ${selected.region}, ${selected.style}, ${selected.gem}.`;toast(next?"Next real match loaded":"Best real match loaded")}
@@ -344,11 +360,11 @@ const EDITS={
  "Modern Icons":{terms:["men","minimal","modern","signet"],style:"Contemporary"}
 };
 document.querySelectorAll('.edit-tile').forEach(b=>b.addEventListener('click',()=>{
- activeEdit=b.dataset.edit;filter='All';$('#search').value='';
- $$('.filter').forEach(f=>f.classList.toggle('active',f.dataset.filter==='All'));
- const matches=catalog.filter(d=>EDITS[activeEdit].terms.some(t=>(d.name+' '+d.style+' '+d.gem+' '+d.keywords).toLowerCase().includes(t)));
- if(matches.length)selectDesign(matches[0]);else renderCatalog();
- $('#collection').scrollIntoView({behavior:'smooth'});
+ activeEdit={label:b.dataset.edit,terms:EDITS[b.dataset.edit].terms};filter='All';
+ $('#search').value='';document.querySelectorAll('.filter').forEach(f=>f.classList.toggle('active',f.dataset.filter==='All'));
+ const m=catalog.find(d=>activeEdit.terms.some(t=>(d.name+' '+d.style+' '+d.gem+' '+d.keywords).toLowerCase().includes(t)));
+ if(m)selectDesign(m);else renderCatalog();
+ document.querySelector('#collection').scrollIntoView({behavior:'smooth'});
 }));
 function sigBrief(){
  return 'ZEVORA Signature Studio enquiry\nMetal: '+$('#sigMetal').value+
@@ -381,10 +397,10 @@ $('#zoomClose').onclick=closeZoom;
 $('#zoomModal').addEventListener('click',e=>{if(e.target.id==='zoomModal')closeZoom()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeZoom()});
 $('#previewImg').addEventListener('click',()=>showZoom($('#previewImg').src));
-$('#catalog').addEventListener('click',e=>{if(e.target.tagName==='IMG')showZoom(e.target.src)});
+$('#catalog').addEventListener('click',e=>{const b=e.target.closest('[data-zoom]');if(b){e.stopPropagation();showZoom(IMAGES[b.dataset.zoom])}});
 
 fillCountries();renderCatalog();selectDesign(catalog[0]);renderSaved();centerTry();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" defer></script>
+
 </body></html>
