@@ -73,6 +73,23 @@ nav{background:#0c0b0aef}
 .card-photo{position:relative}.card-zoom{position:absolute;top:8px;right:8px;border:1px solid #d5b87c80;border-radius:50%;width:35px;height:35px;background:#0c0b0ac9;color:#f6e4b9;cursor:zoom-in;z-index:2}
 .card img{width:100%;display:block}.card-photo img{width:100%}.site-footer{border-top:1px solid #4a3a27;margin-top:60px;padding:55px 0 25px;text-align:center}.footer-brand{font:38px Georgia,serif;letter-spacing:.22em;color:#e3c487}.footer-brand span{font-size:20px}.site-footer p{font:italic 21px Georgia,serif;color:#d8c7ae}.site-footer div{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0}.site-footer button{border:1px solid #544633;border-radius:50px;background:transparent;color:#eee2cb;padding:9px 14px;cursor:pointer}.site-footer small{font-size:11px;color:#a8a092}
 @media(max-width:540px){.announcement{font-size:8px;letter-spacing:.08em}.announcement span{margin:0 3px}.navright{gap:5px}.navright .btn{padding:8px}.brand{font-size:17px}.brand small{font-size:7px}.loc{padding:4px}.loc select{max-width:108px;font-size:12px}.hero{padding-top:35px;padding-bottom:42px}.trustline{justify-content:center;font-size:9px}.editorial-quote{padding:45px 10px}}
+
+.sketch-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:18px;align-items:start}
+.sketch-panel,.sk-brief{min-width:0}.sketch-step{font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+.sketch-intro p{color:#d4cab9;line-height:1.6}.sketch-tools{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:14px 0}
+.sketch-tool.selected{border-color:var(--gold);background:#4b3922;color:#fff}
+.sk-color-label,.sk-size-label{display:flex;align-items:center;gap:6px;font-size:12px;color:#dfd2bc}
+.sk-color-label input{height:30px;width:40px;border:0;background:transparent;cursor:pointer}
+.sk-size-label input{width:85px;accent-color:#c9a45c}
+.sketch-canvas-wrap{width:100%;aspect-ratio:1200/760;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #655339;box-shadow:0 15px 40px #0005}
+#skCanvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;background:#fff}
+.sk-upload{cursor:pointer;display:inline-flex;align-items:center}
+.sk-brief h3{font:30px Georgia,serif;margin:12px 0 18px}
+.sk-label{display:block;font-size:12px;color:#d6c8b1;margin:16px 0 7px}
+.sk-brief textarea,.sk-brief input:not([type=color]){box-sizing:border-box;width:100%;background:#171511;color:#f6f0e5;border:1px solid #514533;border-radius:10px;padding:12px;font:inherit}
+.sk-last-step{margin-top:24px;margin-bottom:13px}
+.sk-full{width:100%;margin:5px 0;justify-content:center}
+@media(max-width:850px){.sketch-layout{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -80,7 +97,7 @@ nav{background:#0c0b0aef}
 <div class="app">
 <nav>
 <a class="brand" href="#top" aria-label="ZEVORA home"><div class="logo">Z</div><span>ZEVORA<small>JEWELLERY STUDIO</small></span></a>
-<div class="navright"><button class="btn hide-sm" onclick="go('edits')">Collections</button><button class="btn hide-sm" onclick="go('signature')">Design Studio</button>
+<div class="navright"><button class="btn hide-sm" onclick="go('edits')">Collections</button><button class="btn hide-sm" onclick="go('signature')">Design Studio</button><button class="btn hide-sm" onclick="go('sketch-studio')">✎ Sketch Your Dream</button>
  <div class="loc">📍<select id="countrySelect"></select></div>
  <button class="btn hide-sm" onclick="go('collection')">Real Designs</button>
  <button class="btn hide-sm" onclick="go('tryon')">Try-On</button>
@@ -89,7 +106,7 @@ nav{background:#0c0b0aef}
 </nav>
 
 <main id="top"><section class="hero">
-<div><div class="kicker">ZEVORA / THE NEW JEWELLERY EDIT</div><h1>Wear your story.<br><i>Make it yours.</i></h1><p class="lead">Discover expressive pieces, modern heirlooms and jewellery inspired by traditions across the world. Explore the edit, save favourites and view indicative pricing in your local currency.</p><div class="actions"><button class="gold" onclick="go('collection')">Shop Real Designs</button><button class="btn" onclick="go('studio')">Find My Design</button></div></div>
+<div><div class="kicker">ZEVORA / THE NEW JEWELLERY EDIT</div><h1>Wear your story.<br><i>Make it yours.</i></h1><p class="lead">Discover expressive pieces, modern heirlooms and jewellery inspired by traditions across the world. Explore the edit, save favourites and view indicative pricing in your local currency.</p><div class="actions"><button class="gold" onclick="go('collection')">Shop Real Designs</button><button class="btn" onclick="go('sketch-studio')">✎ Sketch Your Dream</button></div></div>
 <div class="hero-photo"><img id="heroImg"><div class="hero-cap"><span class="hero-price" id="heroPrice"></span><b id="heroName"></b><span id="heroDesc"></span></div></div>
 </section>
 
@@ -120,6 +137,39 @@ nav{background:#0c0b0aef}
 <div class="actions"><button class="gold" id="sigMatch">Explore matching designs</button><button class="btn" id="sigCopy">Copy my design brief</button></div>
 <div class="try-note" id="sigStatus" role="status">Your selections create a design brief and catalogue match—not a newly generated product image.</div></div>
 <div class="signature-visual"><img src="/emerald_halo.jpg" alt="Emerald halo ring"><span><small>ZEVORA / MADE PERSONAL</small><strong>Your story, set in gold.</strong></span></div></div></section>
+<section class="section" id="sketch-studio">
+<div class="head"><div><div class="kicker">FROM YOUR IMAGINATION TO A REAL PIECE</div><h2>Sketch your dream jewellery.</h2></div><div class="sub">Draw · describe · download · enquire</div></div>
+<div class="sketch-layout">
+<div class="panel sketch-panel">
+<div class="sketch-intro"><span class="sketch-step">01 / YOUR IDEA</span><p>Draw a ring, necklace, earrings or bracelet. Use your laptop trackpad or mouse. Upload a reference image if you prefer.</p></div>
+<div class="sketch-tools" role="toolbar" aria-label="Sketch tools">
+<button type="button" class="btn sketch-tool selected" id="skPen" aria-pressed="true">✎ Draw</button>
+<button type="button" class="btn sketch-tool" id="skEraser" aria-pressed="false">◻ Eraser</button>
+<label class="sk-color-label">Ink <input type="color" id="skColor" value="#292522" aria-label="Pen colour"></label>
+<label class="sk-size-label">Size <input type="range" id="skSize" min="1" max="28" value="3" aria-label="Brush size"></label>
+<button type="button" class="btn" id="skUndo">↶ Undo</button>
+<button type="button" class="btn" id="skRedo">↷ Redo</button>
+<button type="button" class="btn" id="skClear">Clear</button>
+</div>
+<div class="sketch-canvas-wrap"><canvas id="skCanvas" width="1200" height="760" aria-label="Drawing canvas for jewellery design"></canvas></div>
+<div class="sketch-tools"><label class="btn sk-upload">↑ Add reference photo<input id="skUpload" type="file" accept="image/png,image/jpeg,image/webp" hidden></label><button type="button" class="btn" id="skDownload">↓ Download sketch PNG</button><button type="button" class="btn" id="skShare">Share sketch</button></div>
+<div class="try-note" id="skStatus" role="status">Your sketch stays on this device until you choose to download or share it. Save it before leaving this page.</div>
+</div>
+<div class="panel sk-brief">
+<div class="sketch-step">02 / TELL US YOUR VISION</div><h3>What are you dreaming of?</h3>
+<div class="sig-fields">
+<div><label for="skType">Jewellery type</label><select id="skType"><option>Ring</option><option>Necklace</option><option>Earrings</option><option>Bracelet</option><option>Pendant</option><option>Other</option></select></div>
+<div><label for="skMetal">Preferred metal</label><select id="skMetal"><option>18K Yellow Gold</option><option>18K White Gold</option><option>18K Rose Gold</option><option>22K Gold</option><option>Platinum</option><option>Not sure yet</option></select></div>
+<div><label for="skStone">Gemstones</label><select id="skStone"><option>Diamond</option><option>Emerald</option><option>Ruby</option><option>Sapphire</option><option>Pearl</option><option>No gemstones</option><option>Not sure yet</option></select></div>
+<div><label for="skBudget">Budget (AUD)</label><select id="skBudget"><option>Under $2,000</option><option>$2,000–$5,000</option><option>$5,000–$10,000</option><option>Above $10,000</option><option>Discuss with me</option></select></div></div>
+<label for="skNotes" class="sk-label">Describe your design</label><textarea id="skNotes" rows="5" placeholder="Example: An oval emerald ring with a delicate gold band, inspired by my grandmother's jewellery…"></textarea>
+<label for="skName" class="sk-label">Your name (optional)</label><input id="skName" placeholder="Name">
+<label for="skEmail" class="sk-label">Your email (optional)</label><input id="skEmail" type="email" placeholder="you@example.com">
+<div class="sketch-step sk-last-step">03 / TAKE THE NEXT STEP</div>
+<button type="button" class="gold sk-full" id="skRequest">Prepare custom design enquiry →</button>
+<button type="button" class="btn sk-full" id="skBrief">Copy design brief</button>
+<p class="try-note">Preparing an enquiry opens your email app. Download the sketch PNG and attach it to the email yourself. This site does not automatically send your sketch or manufacture jewellery; a jeweller must review feasibility and provide a quote.</p>
+</div></div></section>
 <section class="section" id="studio">
 <div class="head"><div><div class="kicker">ZEVORA Design Match</div><h2>Match a customer brief to a real piece</h2></div><div class="sub">Pricing recalculates instantly</div></div>
 <div class="studio">
@@ -148,7 +198,7 @@ nav{background:#0c0b0aef}
 
 <section class="section" id="moodboard"><div class="head"><div><div class="kicker">Moodboard</div><h2>Saved designs</h2></div></div><div id="saved" class="saved"></div></section>
 </div>
-<footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Jewellery for the stories only you can tell.</p><div><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('tryon')">Ring Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA</small></footer></main>
+<footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Jewellery for the stories only you can tell.</p><div><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('sketch-studio')">Sketch Your Dream</button><button onclick="go('tryon')">Ring Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA</small></footer></main>
 <div class="zoom-modal" id="zoomModal" role="dialog" aria-modal="true" aria-label="Jewellery detail image" hidden><button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button><img id="zoomImg" alt="Jewellery close-up"></div>
 
 <div class="modal" id="loginModal"><div class="modalcard" style="max-width:430px"><div class="modalhead"><h2>Admin Access</h2><button class="btn" onclick="closeLogin()">Close</button></div><label style="display:block;margin-top:16px;color:var(--muted);font-size:12px">Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN" style="width:100%;margin-top:7px;border:1px solid var(--line);background:#0e1014;color:#fff;padding:12px;border-radius:13px"><div class="actions"><button class="gold" id="loginBtn">Unlock Pricing</button></div><div class="notice">Default local-demo PIN: <b>2468</b>. Change it after login. This PIN protects the local app UI only; a public production website needs server-side authentication.</div></div></div>
@@ -398,6 +448,35 @@ $('#zoomModal').addEventListener('click',e=>{if(e.target.id==='zoomModal')closeZ
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeZoom()});
 $('#previewImg').addEventListener('click',()=>showZoom($('#previewImg').src));
 $('#catalog').addEventListener('click',e=>{const b=e.target.closest('[data-zoom]');if(b){e.stopPropagation();showZoom(IMAGES[b.dataset.zoom])}});
+
+
+// Sketch studio: device-local canvas, mouse/trackpad/touch, undo/redo and PNG export.
+const skCanvas=$('#skCanvas'),skCtx=skCanvas.getContext('2d',{willReadFrequently:true});
+let skTool='pen',skDrawing=false,skLast=null,skHistory=[],skFuture=[];
+function skWhite(){skCtx.fillStyle='#ffffff';skCtx.fillRect(0,0,skCanvas.width,skCanvas.height)}
+function skSnapshot(){return skCanvas.toDataURL('image/png')}
+function skRestore(data){let img=new Image();img.onload=()=>{skCtx.clearRect(0,0,skCanvas.width,skCanvas.height);skCtx.drawImage(img,0,0)};img.src=data}
+function skSave(){skHistory.push(skSnapshot());if(skHistory.length>25)skHistory.shift();skFuture=[]}
+skWhite();
+function skPoint(e){const r=skCanvas.getBoundingClientRect();return{x:(e.clientX-r.left)*skCanvas.width/r.width,y:(e.clientY-r.top)*skCanvas.height/r.height}}
+function skStroke(a,b){skCtx.beginPath();skCtx.lineCap='round';skCtx.lineJoin='round';skCtx.lineWidth=+$('#skSize').value*(skTool==='eraser'?4:1);skCtx.strokeStyle=skTool==='eraser'?'#ffffff':$('#skColor').value;skCtx.moveTo(a.x,a.y);skCtx.lineTo(b.x,b.y);skCtx.stroke()}
+skCanvas.addEventListener('pointerdown',e=>{if(e.button!==0&&e.pointerType==='mouse')return;skSave();skDrawing=true;skLast=skPoint(e);skCanvas.setPointerCapture(e.pointerId);skStroke(skLast,skLast);e.preventDefault()});
+skCanvas.addEventListener('pointermove',e=>{if(!skDrawing)return;const point=skPoint(e);skStroke(skLast,point);skLast=point;e.preventDefault()});
+function skEnd(){skDrawing=false;skLast=null}
+skCanvas.addEventListener('pointerup',skEnd);skCanvas.addEventListener('pointercancel',skEnd);
+function skChoose(tool){skTool=tool;$('#skPen').classList.toggle('selected',tool==='pen');$('#skEraser').classList.toggle('selected',tool==='eraser');$('#skPen').setAttribute('aria-pressed',String(tool==='pen'));$('#skEraser').setAttribute('aria-pressed',String(tool==='eraser'))}
+$('#skPen').onclick=()=>skChoose('pen');$('#skEraser').onclick=()=>skChoose('eraser');
+$('#skUndo').onclick=()=>{if(!skHistory.length)return;skFuture.push(skSnapshot());skRestore(skHistory.pop());$('#skStatus').textContent='Undid last action.'};
+$('#skRedo').onclick=()=>{if(!skFuture.length)return;skHistory.push(skSnapshot());skRestore(skFuture.pop());$('#skStatus').textContent='Restored action.'};
+$('#skClear').onclick=()=>{if(!confirm('Clear your drawing? Download it first if you want to keep it.'))return;skSave();skWhite();$('#skStatus').textContent='Canvas cleared. Undo is available.'};
+$('#skUpload').onchange=e=>{const file=e.target.files?.[0];if(!file)return;if(file.size>12*1024*1024){$('#skStatus').textContent='Please choose an image smaller than 12 MB.';return}const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{skSave();skWhite();const ratio=Math.min(skCanvas.width/img.width,skCanvas.height/img.height);const w=img.width*ratio,h=img.height*ratio;skCtx.drawImage(img,(skCanvas.width-w)/2,(skCanvas.height-h)/2,w,h);URL.revokeObjectURL(url);$('#skStatus').textContent='Reference photo loaded. You can draw over it.'};img.onerror=()=>{$('#skStatus').textContent='Could not open this image.';URL.revokeObjectURL(url)};img.src=url;e.target.value=''};
+function skDownload(){const a=document.createElement('a');a.href=skSnapshot();a.download='ZEVORA-my-jewellery-sketch.png';document.body.appendChild(a);a.click();a.remove();$('#skStatus').textContent='Sketch downloaded. Attach the PNG to your enquiry email.'}
+$('#skDownload').onclick=skDownload;
+function skBlob(){return new Promise(resolve=>skCanvas.toBlob(resolve,'image/png'))}
+$('#skShare').onclick=async()=>{const blob=await skBlob();if(!blob)return;const file=new File([blob],'ZEVORA-my-jewellery-sketch.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})&&navigator.share){try{await navigator.share({files:[file],title:'My ZEVORA jewellery sketch',text:'My custom jewellery idea'});$('#skStatus').textContent='Share sheet opened.'}catch(e){if(e.name!=='AbortError')$('#skStatus').textContent='Sharing unavailable; use Download sketch PNG.'}}else{skDownload();$('#skStatus').textContent='Direct file sharing is unavailable in this browser. PNG downloaded instead.'}};
+function skText(){return 'ZEVORA — CUSTOM JEWELLERY DESIGN ENQUIRY\n\nJewellery: '+$('#skType').value+'\nMetal: '+$('#skMetal').value+'\nGemstone: '+$('#skStone').value+'\nBudget: '+$('#skBudget').value+'\nDesign vision: '+($('#skNotes').value.trim()||'See attached sketch')+'\nName: '+($('#skName').value.trim()||'Not supplied')+'\nReply email: '+($('#skEmail').value.trim()||'Not supplied')+'\n\nI have a jewellery sketch to share. Please advise whether this design can be made and provide a quotation.\n\n[PLEASE ATTACH THE DOWNLOADED SKETCH PNG TO THIS EMAIL]'}
+$('#skBrief').onclick=async()=>{const v=skText();try{await navigator.clipboard.writeText(v);$('#skStatus').textContent='Design brief copied.'}catch(e){const t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();$('#skStatus').textContent='Design brief copied where supported.'}};
+$('#skRequest').onclick=()=>{skDownload();const subj='ZEVORA custom jewellery sketch — '+$('#skType').value;$('#skStatus').textContent='Sketch downloaded. Attach it manually to the email that opens. No enquiry has been sent yet.';window.location.href='mailto:?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(skText())};
 
 fillCountries();renderCatalog();selectDesign(catalog[0]);renderSaved();centerTry();
 </script>
