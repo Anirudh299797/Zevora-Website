@@ -3,7 +3,3 @@ services:
     name: zevora-website
     runtime: static
     staticPublishPath: .
-    headers:
-      - path: /*
-        name: Cache-Control
-        value: no-cache
