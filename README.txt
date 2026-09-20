@@ -1,15 +1,1 @@
-ZEVORA WEBSITE — FIXED IMAGE VERSION
-
-IMPORTANT:
-This version uses real JPEG/PNG files in /images instead of very large
-base64 images embedded inside JavaScript. This is much more reliable on
-iPhone/Safari and is also the correct structure for public web hosting.
-
-For a public shareable URL, upload the complete folder/repository to Render
-as a Static Site. Do not upload index.html by itself because the /images
-folder is required.
-
-Local Mac test:
-Double-click 'Launch ZEVORA.command'.
-
-Default Admin PIN: 2468
+ZEVORA RING FIRST: Upload all files in this ZIP (not the ZIP itself) to the root of your EXISTING GitHub repository. Commit index.html and all JPG/PNG files. Existing Render site auto-deploys or use Manual Deploy > Deploy latest commit. Live ring tracking needs HTTPS, camera permission and internet for MediaPipe. This is landmark-assisted overlay, not photorealistic generative AI or physically accurate AR. Existing product JPGs are not new HD originals. Photo try-on is local and illustrative. Admin settings remain browser-local demo settings, not secure centralized pricing.
