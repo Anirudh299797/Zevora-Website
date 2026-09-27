@@ -1,0 +1,5 @@
+ZEVORA 9 — AI VISUAL REFRESH
+
+8 product visuals are newly extracted from an AI-generated editorial jewellery concept image, not sharpened versions of previous catalogue photographs. Each extracted image is approximately 361 x 300 pixels, which is NOT genuine high-resolution product photography or suitable for detailed zoom. Do not claim 2K or 4K or sell the exact pictured item unless physically verified. The remaining 11 catalogue JPGs and transparent try-on PNGs are inherited from V8 and have NOT been replaced. Product image content may not match precise stone counts or design specifications. Prices are illustrative estimates.
+
+Upload the contents of this ZIP to GitHub repository root, not the ZIP itself. No deployment has been performed. The AI Dream Studio still requires separately configured Render web service and API key.
