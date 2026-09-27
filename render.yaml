@@ -1,5 +1,11 @@
 services:
   - type: web
     name: zevora-website
-    runtime: static
-    staticPublishPath: .
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ENABLE_PUBLIC_GENERATION
+        value: "false"

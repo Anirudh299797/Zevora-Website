@@ -90,6 +90,25 @@ nav{background:#0c0b0aef}
 .sk-last-step{margin-top:24px;margin-bottom:13px}
 .sk-full{width:100%;margin:5px 0;justify-content:center}
 @media(max-width:850px){.sketch-layout{grid-template-columns:1fr}}
+
+.sketch-layout{grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr)}
+#sketch-studio{background:radial-gradient(ellipse at 25% 5%,#3a291a88,transparent 55%);padding:36px 18px;border:1px solid #5a4228;border-radius:28px;margin:30px 0}
+.sketch-panel,.sk-brief{background:linear-gradient(155deg,#262017,#110f0d 72%);box-shadow:0 20px 60px #0006;border-color:#6b5030}
+.sketch-canvas-wrap{box-shadow:0 18px 55px #0008;border:3px solid #ad8d58}
+.sketch-step{color:#e8c991}.sketch-panel .sketch-intro p{font-size:14px}
+.sk-render[hidden]{display:none}.sk-render{margin-top:17px;border:1px solid #94784b;border-radius:18px;padding:12px;background:#0b0a08}
+.sk-render-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}.sk-render img{width:100%;display:block;border-radius:12px;background:#191611}
+#skGenerate{font-size:14px;padding:15px 12px;background:linear-gradient(105deg,#f3db9c,#c28e3d,#f3db9c)}
+#skGenerate:disabled{opacity:.65;cursor:wait}
+#fingerSelect{background:#171511;color:#fff;border:1px solid #b18c50;border-radius:10px;padding:12px;width:100%;margin:8px 0 12px}
+@media(max-width:850px){.sketch-layout{grid-template-columns:1fr}#sketch-studio{padding:22px 12px}}
+
+/* Dream Studio v7: sketch and render displayed together */
+.sk-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}
+.sk-before,.sk-after{min-width:0;padding:12px;border:1px solid #6b5636;border-radius:14px;background:#1b1916}
+.sk-before img,.sk-after img{display:block;width:100%;aspect-ratio:1;object-fit:contain;background:white;border-radius:9px;margin-top:10px}
+.sk-after{background:linear-gradient(145deg,#30251a,#171511);border-color:#c9a45c}
+@media(max-width:600px){.sk-result-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -138,7 +157,7 @@ nav{background:#0c0b0aef}
 <div class="try-note" id="sigStatus" role="status">Your selections create a design brief and catalogue match—not a newly generated product image.</div></div>
 <div class="signature-visual"><img src="/emerald_halo.jpg" alt="Emerald halo ring"><span><small>ZEVORA / MADE PERSONAL</small><strong>Your story, set in gold.</strong></span></div></div></section>
 <section class="section" id="sketch-studio">
-<div class="head"><div><div class="kicker">FROM YOUR IMAGINATION TO A REAL PIECE</div><h2>Sketch your dream jewellery.</h2></div><div class="sub">Draw · describe · download · enquire</div></div>
+<div class="head"><div><div class="kicker">FROM YOUR IMAGINATION TO A REAL PIECE</div><h2>Sketch it. See it come to life.</h2></div><div class="sub">Draw → AI concept render → refine → enquire</div></div>
 <div class="sketch-layout">
 <div class="panel sketch-panel">
 <div class="sketch-intro"><span class="sketch-step">01 / YOUR IDEA</span><p>Draw a ring, necklace, earrings or bracelet. Use your laptop trackpad or mouse. Upload a reference image if you prefer.</p></div>
@@ -165,10 +184,14 @@ nav{background:#0c0b0aef}
 <label for="skNotes" class="sk-label">Describe your design</label><textarea id="skNotes" rows="5" placeholder="Example: An oval emerald ring with a delicate gold band, inspired by my grandmother's jewellery…"></textarea>
 <label for="skName" class="sk-label">Your name (optional)</label><input id="skName" placeholder="Name">
 <label for="skEmail" class="sk-label">Your email (optional)</label><input id="skEmail" type="email" placeholder="you@example.com">
-<div class="sketch-step sk-last-step">03 / TAKE THE NEXT STEP</div>
+<div class="sketch-step sk-last-step">03 / SEE YOUR CONCEPT</div>
+<button type="button" class="gold sk-full" id="skGenerate">✦ Turn my sketch into a jewellery render</button>
+<div class="sk-render" id="skRender" hidden><div class="sk-render-head"><span class="sketch-step">YOUR CONCEPT / VISUALISATION</span><span class="sketch-step">AI-GENERATED</span></div><div class="sk-result-grid"><div class="sk-before"><div class="sketch-step">YOUR ORIGINAL SKETCH</div><img id="skBeforeImg" alt="Your submitted jewellery sketch"></div><div class="sk-after"><div class="sketch-step">YOUR REALISTIC CONCEPT</div><img id="skRenderImg" alt="AI-generated jewellery concept based on sketch"></div></div><div class="sketch-tools"><button type="button" class="btn" id="skRenderSave">↓ Download concept</button><button type="button" class="btn" id="skRefine">↻ Refine this concept</button></div><p class="try-note">Concept image only. Stone setting, weight, durability and manufacturability must be confirmed by a jeweller.</p></div>
+<p class="try-note" id="skAIStatus" role="status">AI render requires the site owner to enable the secure image service on Render. Generation may incur API charges.</p>
+<div class="sketch-step sk-last-step">04 / MAKE AN ENQUIRY</div>
 <button type="button" class="gold sk-full" id="skRequest">Prepare custom design enquiry →</button>
 <button type="button" class="btn sk-full" id="skBrief">Copy design brief</button>
-<p class="try-note">Preparing an enquiry opens your email app. Download the sketch PNG and attach it to the email yourself. This site does not automatically send your sketch or manufacture jewellery; a jeweller must review feasibility and provide a quote.</p>
+<p class="try-note">Preparing an enquiry opens your email app. Download the sketch and concept PNGs and attach them to the email yourself. This site does not automatically send your sketch or manufacture jewellery; a jeweller must review feasibility and provide a quote.</p>
 </div></div></section>
 <section class="section" id="studio">
 <div class="head"><div><div class="kicker">ZEVORA Design Match</div><h2>Match a customer brief to a real piece</h2></div><div class="sub">Pricing recalculates instantly</div></div>
@@ -188,9 +211,9 @@ nav{background:#0c0b0aef}
 </section>
 
 <section class="section" id="tryon">
-<div class="head"><div><div class="kicker">Virtual Try-On</div><h2>Ring try-on studio · live camera or photo</h2></div><div class="sub">Hand tracking · transparent ring · manual fine-tuning</div></div>
+<div class="head"><div><div class="kicker">Virtual Try-On</div><h2>Try rings on any finger · live or photo</h2></div><div class="sub">Five-finger selection · hand tracking · manual fine-tuning</div></div>
 <div class="trygrid">
-<div class="panel modes"><button class="mode active" data-mode="ring">💍 Hand / Ring</button><div class="try-note">Rings first: hand tracking and photo placement. Earrings, bracelets and necklaces remain in the catalogue; their live try-on is not enabled in this release.</div>
+<div class="panel modes"><button class="mode active" data-mode="ring">💍 Hand / Ring</button><label for="fingerSelect">Choose your finger</label><select id="fingerSelect"><option value="8">Index finger</option><option value="12">Middle finger</option><option value="16" selected>Ring finger</option><option value="20">Little finger</option><option value="4">Thumb</option></select><div class="try-note">Move the ring between all five fingers. Tracking follows your selected finger; drag or resize for a closer fit. Use good lighting and keep your whole hand visible.</div>
 <button class="gold" id="cameraBtn">Start Live Camera</button><p class="try-note" id="trackStatus">Select a ring, then show your hand to the camera or upload a hand photo.</p><label>Or upload a photo</label><input id="photoInput" type="file" accept="image/*"><label>Size</label><input id="sizeRange" type="range" min="60" max="360" value="150"><label>Rotation</label><input id="rotRange" type="range" min="-180" max="180" value="0"><div class="actions"><button class="btn" id="centerBtn">Reset Position</button><button class="gold" id="snapshotBtn">Save Try-On Photo</button></div><p class="try-note">Illustrative landmark-assisted try-on. Drag, resize and rotate to improve placement. This is not generative AI or physically accurate AR.</p></div>
 <div class="camera" id="cameraBox"><div class="badge" id="cameraStatus">Camera off</div><video id="video" autoplay muted playsinline></video><img id="photo" class="photo"><div class="overlay" id="overlay" style="display:none"><img id="overlayImg"></div><canvas id="exportCanvas" hidden></canvas></div>
 </div>
@@ -292,6 +315,7 @@ overlay.addEventListener('pointermove',e=>{
 overlay.addEventListener('pointerup',()=>draggingPointer=false);
 overlay.addEventListener('pointercancel',()=>draggingPointer=false);
 $("#centerBtn").onclick=()=>{manual=false;hideRing();if(photoMode)analysePhoto()};
+$('#fingerSelect').onchange=()=>{manual=false;hideRing();if(photoMode)analysePhoto();else status('Finger changed · hold your hand in view.')};
 function onRingSelected(){
  const im=$("#overlayImg"),url=tryImage(selected);
  hideRing();
@@ -310,8 +334,11 @@ async function loadTracker(){
    const h=r.multiHandLandmarks?.[0];
    if(!h){if(++seen>5){hideRing();status('No hand detected · hold your hand clearly in the frame.')}return}
    seen=0;
-   // Middle finger: MCP=9, PIP=10, DIP=11. Place near the base of the finger.
-   const a=h[9],b=h[10],p=h[13],q=h[14];
+   // Select any finger: tip indices 4,8,12,16,20. The MCP-to-PIP segment gives
+   // a stable approximate base-of-finger location for a jewellery overlay.
+   const tip=Number($('#fingerSelect').value);
+   const base=tip===4?2:tip-3, joint=tip===4?3:tip-2;
+   const p=h[base],q=h[joint];
    // Match video object-fit: contain and mirror to the actual displayed pixels.
    const source=photoMode?photo:video;
    const iw=source.videoWidth||source.naturalWidth,ih=source.videoHeight||source.naturalHeight;
@@ -321,12 +348,13 @@ async function loadTracker(){
    const ox=(cw-rw)/2,oy=(ch-rh)/2;
    const toX=v=>((photoMode?v:1-v)*rw+ox)/cw*100;
    const toY=v=>(v*rh+oy)/ch*100;
-   const x=toX(p.x*.62+q.x*.38),y=toY(p.y*.62+q.y*.38);
+   const x=toX(p.x*.55+q.x*.45),y=toY(p.y*.55+q.y*.45);
+   const palm=Math.hypot((h[5].x-h[17].x)*rw,(h[5].y-h[17].y)*rh);
    const finger=Math.hypot((q.x-p.x)*rw,(q.y-p.y)*rh);
-   const width=Math.max(28,Math.min(125,finger*2.25));
+   const width=Math.max(26,Math.min(130,Math.max(finger*1.9,palm*(tip===4?.34:.29))));
    const rot=Math.atan2((q.y-p.y)*rh,(photoMode?1:-1)*(q.x-p.x)*rw)*180/Math.PI-90;
    position(x,y,width,rot,.72);
-   status('Hand detected · ring positioned. Drag to fine-tune.')
+   status('Hand detected · ' + $('#fingerSelect').selectedOptions[0].text + ' · drag to fine-tune.')
   });
   ready=true;return true
  }catch(e){status('Tracker unavailable. Check internet connection.');return false}
@@ -476,7 +504,31 @@ function skBlob(){return new Promise(resolve=>skCanvas.toBlob(resolve,'image/png
 $('#skShare').onclick=async()=>{const blob=await skBlob();if(!blob)return;const file=new File([blob],'ZEVORA-my-jewellery-sketch.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})&&navigator.share){try{await navigator.share({files:[file],title:'My ZEVORA jewellery sketch',text:'My custom jewellery idea'});$('#skStatus').textContent='Share sheet opened.'}catch(e){if(e.name!=='AbortError')$('#skStatus').textContent='Sharing unavailable; use Download sketch PNG.'}}else{skDownload();$('#skStatus').textContent='Direct file sharing is unavailable in this browser. PNG downloaded instead.'}};
 function skText(){return 'ZEVORA — CUSTOM JEWELLERY DESIGN ENQUIRY\n\nJewellery: '+$('#skType').value+'\nMetal: '+$('#skMetal').value+'\nGemstone: '+$('#skStone').value+'\nBudget: '+$('#skBudget').value+'\nDesign vision: '+($('#skNotes').value.trim()||'See attached sketch')+'\nName: '+($('#skName').value.trim()||'Not supplied')+'\nReply email: '+($('#skEmail').value.trim()||'Not supplied')+'\n\nI have a jewellery sketch to share. Please advise whether this design can be made and provide a quotation.\n\n[PLEASE ATTACH THE DOWNLOADED SKETCH PNG TO THIS EMAIL]'}
 $('#skBrief').onclick=async()=>{const v=skText();try{await navigator.clipboard.writeText(v);$('#skStatus').textContent='Design brief copied.'}catch(e){const t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();$('#skStatus').textContent='Design brief copied where supported.'}};
-$('#skRequest').onclick=()=>{skDownload();const subj='ZEVORA custom jewellery sketch — '+$('#skType').value;$('#skStatus').textContent='Sketch downloaded. Attach it manually to the email that opens. No enquiry has been sent yet.';window.location.href='mailto:?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(skText())};
+$('#skRequest').onclick=()=>{skDownload();if(skRenderUrl)skDownloadRender();const subj='ZEVORA custom jewellery sketch — '+$('#skType').value;$('#skStatus').textContent='Sketch downloaded. Attach the sketch and any generated concept to the email that opens. No enquiry has been sent yet.';window.location.href='mailto:?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(skText())};
+
+
+// Sketch-to-render is a real, opt-in server API. No secret key is embedded in HTML.
+let skRenderUrl=null,skGenerating=false;
+function skDownloadRender(){if(!skRenderUrl)return;const a=document.createElement('a');a.href=skRenderUrl;a.download='ZEVORA-jewellery-concept.png';document.body.appendChild(a);a.click();a.remove()}
+$('#skRenderSave').onclick=skDownloadRender;
+$('#skRefine').onclick=()=>{$('#skAIStatus').textContent='Describe what to change, then press Generate. Your previous concept will be supplied as a visual reference.';$('#skNotes').focus();$('#skNotes').placeholder='Example: Keep the same ring, make the band thinner and change the stone to oval emerald.'};
+async function skAIStatus(){try{const r=await fetch('/api/status');const j=await r.json();$('#skAIStatus').textContent=j.enabled?'AI visualisation is available. Each render is a concept, not a production-ready CAD model.':'AI visualisation is not enabled by the site owner yet. You can still draw and download your sketch.'}catch(e){$('#skAIStatus').textContent='AI visualisation needs the ZEVORA Render web service; sketch and downloads still work.'}}
+skAIStatus();
+$('#skGenerate').onclick=async()=>{
+ if(skGenerating)return;
+ skGenerating=true;const b=$('#skGenerate');b.disabled=true;b.textContent='Creating your jewellery concept…';
+ $('#skAIStatus').textContent='Generating a studio-style concept from your sketch. This may take a minute.';
+ try{
+  const payload={image:skSnapshot(),type:$('#skType').value,metal:$('#skMetal').value,stone:$('#skStone').value,notes:$('#skNotes').value.trim().slice(0,1400),reference:skRenderUrl};
+  const response=await fetch('/api/render-sketch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const result=await response.json();if(!response.ok)throw new Error(result.error||'Image generation failed');
+  $('#skBeforeImg').src=payload.image;skRenderUrl='data:image/png;base64,'+result.image;
+  $('#skRenderImg').src=skRenderUrl;$('#skRender').hidden=false;
+  $('#skAIStatus').textContent='Your concept is ready. Change your notes and generate again to refine it, or download the image.';
+  $('#skRender').scrollIntoView({behavior:'smooth',block:'nearest'});
+ }catch(e){$('#skAIStatus').textContent=e.message||'Could not generate a concept. Your sketch is still available.'}
+ finally{skGenerating=false;b.disabled=false;b.textContent='✦ Turn my sketch into a jewellery render'}
+};
 
 fillCountries();renderCatalog();selectDesign(catalog[0]);renderSaved();centerTry();
 </script>

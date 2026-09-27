@@ -1,0 +1,15 @@
+ZEVORA 7 — SKETCH TO REALITY + FIVE-FINGER TRY-ON
+
+IMPORTANT: This is a NODE WEB SERVICE, not the previous static site. The new AI feature will not work until Render is configured.
+
+1. Extract the ZIP and upload ALL files to the ROOT of your existing GitHub repository.
+2. In Render, open your existing ZEVORA service. If it is a Static Site, create a NEW Render Web Service from the SAME GitHub repo (Render may not allow changing a static service to web in place). Use runtime Node, build command npm install, start command npm start. Point your custom domain at the new service only after testing. Your old onrender.com subdomain may change if you create a new service. If you already have a Node Web Service, update its build/start commands.
+3. Render > Environment: set OPENAI_API_KEY to your private API key; set ENABLE_PUBLIC_GENERATION to true ONLY when you understand the cost and abuse risk. Do NOT put the key in GitHub or HTML. API usage is billed separately from ChatGPT subscription.
+4. Deploy and check /api/status on your service; it should return {"enabled":true}. Then test with a sketch.
+5. The server limits image generation to 3 requests per IP per day in process memory; this is only a basic guard and resets on restart, not a production-grade billing or abuse protection. For a public launch, add persistent quotas, authentication/CAPTCHA, budget alerts and a backend for customer submissions.
+
+The sketch-to-render is a REAL API integration (not a fake preview), but cannot be live-tested without your API key and deployed web service. It creates a photorealistic design CONCEPT, not a CAD/manufacturing drawing. Customer sketches are sent to the image provider only when they press Generate; no server storage is implemented.
+
+Try-on now lets the customer select thumb, index, middle, ring or little finger. This is 2D landmark-assisted overlay, NOT physically accurate 3D AR. Older product JPGs remain inherited and are not new HD photography.
+
+VERSION 7: Side-by-side original sketch and AI concept; refine passes the previous concept image as additional input. Uses default image model gpt-image-1.5 (set IMAGE_MODEL to a supported model if desired).
