@@ -148,7 +148,7 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 @media(max-width:760px){.product-dialog{padding:0}.product-shell{width:100%;height:100dvh;max-height:100dvh;border-radius:0}.product-layout{grid-template-columns:1fr}.product-visual{min-height:280px}.product-visual img{height:38dvh}.product-copy{padding:22px 20px 55px}.card-photo img{height:215px}.product-copy h2{font-size:35px}}
 @media(max-width:420px){.app{padding-left:12px;padding-right:12px}.catalog{gap:8px}.card{padding:7px}.card-photo img{height:160px}.card h3{font-size:15px}.card-row{align-items:flex-start;flex-direction:column}.card-zoom{width:30px;height:30px}.navright{gap:3px}.hero h1{font-size:43px}}
 @media(prefers-reduced-motion:reduce){.card-photo img,.card{transition:none!important}}
-</style>
+.card-try{width:calc(100% - 24px);margin:0 12px 14px;padding:10px 12px}\n</style>
 </head>
 <body>
 <div class="announcement">ZEVORA / FAMILY HERITAGE SINCE 1985 <span>✦</span> MADE FOR THE STORIES WE KEEP <span>✦</span> DISCOVER · IMAGINE · CREATE</div>
@@ -272,17 +272,17 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 </section>
 
 <section class="section" id="tryon">
-<div class="head"><div><div class="kicker">Virtual Try-On</div><h2>Try rings on any finger · live or photo</h2></div><div class="sub">Five-finger selection · hand tracking · manual fine-tuning</div></div>
+<div class="head"><div><div class="kicker">Virtual Try-On</div><h2>Try on every ZEVORA design</h2></div><div class="sub">Rings · earrings · necklaces · bracelets · live or photo</div></div>
 <div class="trygrid">
-<div class="panel modes"><button class="mode active" data-mode="ring">💍 Hand / Ring</button><label for="fingerSelect">Choose your finger</label><select id="fingerSelect"><option value="8">Index finger</option><option value="12">Middle finger</option><option value="16" selected>Ring finger</option><option value="20">Little finger</option><option value="4">Thumb</option></select><div class="try-note">Move the ring between all five fingers. Tracking follows your selected finger; drag or resize for a closer fit. Use good lighting and keep your whole hand visible.</div>
-<button class="gold" id="cameraBtn">Start Live Camera</button><p class="try-note" id="trackStatus">Select a ring, then show your hand to the camera or upload a hand photo.</p><label>Or upload a photo</label><input id="photoInput" type="file" accept="image/*"><label>Size</label><input id="sizeRange" type="range" min="60" max="360" value="150"><label>Rotation</label><input id="rotRange" type="range" min="-180" max="180" value="0"><div class="actions"><button class="btn" id="centerBtn">Reset Position</button><button class="gold" id="snapshotBtn">Save Try-On Photo</button></div><p class="try-note">Illustrative landmark-assisted try-on. Drag, resize and rotate to improve placement. This is not generative AI or physically accurate AR.</p></div>
+<div class="panel modes"><button class="mode active" data-mode="ring">✦ All Jewellery Try-On</button><label for="fingerSelect">Choose your finger</label><select id="fingerSelect"><option value="8">Index finger</option><option value="12">Middle finger</option><option value="16" selected>Ring finger</option><option value="20">Little finger</option><option value="4">Thumb</option></select><div class="try-note">Move the ring between all five fingers. Tracking follows your selected finger; drag or resize for a closer fit. Use good lighting and keep your whole hand visible.</div>
+<button class="gold" id="cameraBtn">Start Live Camera</button><p class="try-note" id="trackStatus">Select any catalogue design. Rings and bracelets support hand tracking; earrings and necklaces support face/neck tracking; every design also supports manual fine-tuning.</p><label>Or upload a photo</label><input id="photoInput" type="file" accept="image/*"><label>Size</label><input id="sizeRange" type="range" min="60" max="360" value="150"><label>Rotation</label><input id="rotRange" type="range" min="-180" max="180" value="0"><div class="actions"><button class="btn" id="centerBtn">Reset Position</button><button class="gold" id="snapshotBtn">Save Try-On Photo</button></div><p class="try-note">Landmark-assisted try-on with automatic ring, wrist, earring and necklace placement. Drag, resize and rotate to fine-tune. Visual approximation only; not a physical sizing guarantee.</p></div>
 <div class="camera" id="cameraBox"><div class="badge" id="cameraStatus">Camera off</div><video id="video" autoplay muted playsinline></video><img id="photo" class="photo"><div class="overlay" id="overlay" style="display:none"><img id="overlayImg"></div><canvas id="exportCanvas" hidden></canvas></div>
 </div>
 </section>
 
 <section class="section" id="moodboard"><div class="head"><div><div class="kicker">Moodboard</div><h2>Saved designs</h2></div></div><div id="saved" class="saved"></div></section>
 </div>
-<footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Family jewellery heritage since 1985. Your story is our next chapter.</p><div><button onclick="go('our-story')">Our Story</button><button onclick="go('generations')">Generations Passport</button><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('sketch-studio')">Sketch Your Dream</button><button onclick="go('tryon')">Ring Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA · Family jewellery heritage since 1985</small></footer></main>
+<footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Family jewellery heritage since 1985. Your story is our next chapter.</p><div><button onclick="go('our-story')">Our Story</button><button onclick="go('generations')">Generations Passport</button><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('sketch-studio')">Sketch Your Dream</button><button onclick="go('tryon')">All Jewellery Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA · Family jewellery heritage since 1985</small></footer></main>
 <div class="zoom-modal" id="zoomModal" role="dialog" aria-modal="true" aria-label="Jewellery detail image" hidden><button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button><img id="zoomImg" alt="Jewellery close-up"></div>
 
 <div class="modal" id="loginModal"><div class="modalcard" style="max-width:430px"><div class="modalhead"><h2>Admin Access</h2><button class="btn" onclick="closeLogin()">Close</button></div><label style="display:block;margin-top:16px;color:var(--muted);font-size:12px">Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN" style="width:100%;margin-top:7px;border:1px solid var(--line);background:#0e1014;color:#fff;padding:12px;border-radius:13px"><div class="actions"><button class="gold" id="loginBtn">Unlock Pricing</button></div><div class="notice">Default local-demo PIN: <b>2468</b>. Change it after login. This PIN protects the local app UI only; a public production website needs server-side authentication.</div></div></div>
@@ -304,7 +304,7 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
  <div class="product-visual"><img id="productImage" alt="Jewellery design concept"></div>
  <div class="product-copy"><div class="kicker">ZEVORA · THE GLOBAL ATELIER</div><h2 id="productTitle"></h2><p id="productStory"></p><div class="product-price" id="productPrice"></div>
  <div class="product-spec" id="productSpecs"></div><p class="product-disclaimer">Family Archive items show cropped original photographs; other designs may be AI illustrations. Displayed pricing is indicative and based on editable business inputs, not a confirmed offer. Confirm metal, stones, weight, taxes and delivery before ordering.</p>
- <div class="product-actions"><button class="gold" id="productExplore" type="button">Personalise in Atelier ↗</button><button class="btn" id="productSave" type="button">Save this design ♡</button><button class="btn" id="productEnquire" type="button">Prepare quote brief ↗</button></div>
+ <div class="product-actions"><button class="gold" id="productTry" type="button">Try On ↗</button><button class="gold" id="productExplore" type="button">Personalise in Atelier ↗</button><button class="btn" id="productSave" type="button">Save this design ♡</button><button class="btn" id="productEnquire" type="button">Prepare quote brief ↗</button></div>
  </div></div></div>
 </div>
 <div class="toast" id="toast"></div>
@@ -328,7 +328,7 @@ function breakdown(d){let x=settings.countries[country],base=calcAUD(d);return `
 function detectCountry(){let lang=(navigator.language||"").toUpperCase(),tz="";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){};if(lang.includes("-AU")||tz.startsWith("Australia/"))return"AU";if(lang.includes("-IN")||tz==="Asia/Kolkata")return"IN";if(lang.includes("-GB")||tz==="Europe/London")return"GB";if(lang.includes("-NZ")||tz.startsWith("Pacific/Auckland"))return"NZ";if(lang.includes("-CA"))return"CA";if(lang.includes("-SG")||tz==="Asia/Singapore")return"SG";if(lang.includes("-JP")||tz==="Asia/Tokyo")return"JP";if(lang.includes("-AE")||tz==="Asia/Dubai")return"AE";if(lang.includes("-US"))return"US";return"AU"}
 function fillCountries(){let s=$("#countrySelect"),h="";Object.entries(settings.countries).forEach(([k,v])=>h+=`<option value="${k}">${v.name} · ${v.currency}</option>`);s.innerHTML=h;country=detectCountry();if(!settings.countries[country])country="AU";s.value=country}
 function selectDesign(d,scroll=false){selected=d;$("#heroImg").src=IMAGES[d.file];$("#heroName").textContent=d.name;$("#heroDesc").textContent=d.region+" · "+d.style+" · "+d.gem;$("#previewImg").src=IMAGES[d.file];onRingSelected();$("#heroPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#previewMeta").innerHTML=[d.name,d.type,d.region,d.style,d.material,d.gem].map(x=>`<span class="chip">${x}</span>`).join("");$("#designId").textContent="ZEVORA · "+d.id.toUpperCase();$("#studioPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#priceCountry").textContent=settings.countries[country].name;$("#priceBreakdown").textContent=breakdown(d);renderCatalog();if(scroll)go("studio")}
-function renderCatalog(){let q=$("#search").value.toLowerCase().trim(),a=catalog.filter(d=>(filter==="All"||d.type===filter)&&(!q||(d.name+" "+d.region+" "+d.style+" "+d.material+" "+d.gem+" "+d.keywords).toLowerCase().includes(q))&&(!activeEdit||activeEdit.terms.some(t=>(d.name+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(t))));$("#resultCount").textContent=(activeEdit?activeEdit.label+" · ":"")+a.length+" designs";$("#catalog").innerHTML=a.map(d=>`<article class="card ${d.id===selected.id?"selected":""}" data-id="${d.id}"><div class="card-photo"><img src="${IMAGES[d.file]}" alt="${d.name} — illustrative design concept" loading="lazy" decoding="async"><span class="ai-visual-tag">DESIGN CONCEPT</span><button class="card-zoom" type="button" data-zoom="${d.file}" aria-label="Enlarge ${d.name}">↗</button></div><h3>${d.name}</h3><p>${d.region} · ${d.style}</p><div class="card-row"><span class="chip">${d.gem}</span><span class="price">${(d.quoteOnly?'Quote on request':money(calcLocal(d),country))}</span></div></article>`).join("")||'<div class="empty">No matching designs.</div>';$$(".card").forEach(c=>c.onclick=e=>{if(e.target.closest(".card-zoom"))return;selectDesign(catalog.find(d=>d.id===c.dataset.id),true)})}
+function renderCatalog(){let q=$("#search").value.toLowerCase().trim(),a=catalog.filter(d=>(filter==="All"||d.type===filter)&&(!q||(d.name+" "+d.region+" "+d.style+" "+d.material+" "+d.gem+" "+d.keywords).toLowerCase().includes(q))&&(!activeEdit||activeEdit.terms.some(t=>(d.name+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(t))));$("#resultCount").textContent=(activeEdit?activeEdit.label+" · ":"")+a.length+" designs";$("#catalog").innerHTML=a.map(d=>`<article class="card ${d.id===selected.id?"selected":""}" data-id="${d.id}"><div class="card-photo"><img src="${IMAGES[d.file]}" alt="${d.name} — illustrative design concept" loading="lazy" decoding="async"><span class="ai-visual-tag">DESIGN CONCEPT</span><button class="card-zoom" type="button" data-zoom="${d.file}" aria-label="Enlarge ${d.name}">↗</button></div><h3>${d.name}</h3><p>${d.region} · ${d.style}</p><div class="card-row"><span class="chip">${d.gem}</span><span class="price">${(d.quoteOnly?'Quote on request':money(calcLocal(d),country))}</span></div><button class="btn card-try" type="button" data-try="${d.id}">Try On ↗</button></article>`).join("")||'<div class="empty">No matching designs.</div>';$$(".card").forEach(c=>c.onclick=e=>{if(e.target.closest(".card-zoom"))return;if(e.target.closest(".card-try")){selectDesign(catalog.find(d=>d.id===c.dataset.id));go("tryon");return;}selectDesign(catalog.find(d=>d.id===c.dataset.id),true)})}
 $("#search").oninput=()=>{activeEdit=null;renderCatalog()};$$(".filter").forEach(b=>b.onclick=()=>{$$(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;activeEdit=null;renderCatalog()});
 function score(d){let s=0,t=$("#type").value,r=$("#region").value,g=$("#gem").value,b=$("#brief").value.toLowerCase();if(t!=="Any"&&d.type===t)s+=5;if(r!=="Any"&&d.region===r)s+=6;if(g!=="Any"&&d.gem.toLowerCase().includes(g.toLowerCase()))s+=4;for(const w of b.split(/\s+/)){if(w.length>2&&(d.name+" "+d.region+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(w))s+=1}return s}
 function matches(){return [...catalog].sort((a,b)=>score(b)-score(a))}
@@ -345,9 +345,9 @@ $("#countrySelect").onchange=function(){country=this.value;selectDesign(selected
 const CUTOUT_NAMES=new Set(["celtic_knot_ring", "emerald_halo", "emerald_ring", "heritage_earrings", "kundan_ring", "modern_solitaire", "oval_halo", "pearl_drop_earrings", "royal_temple_ring", "sapphire_ring", "solitaire_elegance"]);
 
 const video=$("#video"),photo=$("#photo"),box=$("#cameraBox"),overlay=$("#overlay");
-let handsModel=null,ready=false,busy=false,tracking=false,photoMode=false,manual=false,lastFrame=0;
+let handsModel=null,faceModel=null,ready=false,faceReady=false,busy=false,tracking=false,photoMode=false,manual=false,lastFrame=0;
 let angle=0,ow=80,oh=55,seen=0;
-function tryImage(d){let n=d.file.replace(/\.(jpg|png)$/,'');return CUTOUT_NAMES.has(n)?'/'+n+'.png':null}
+function tryImage(d){let n=d.file.replace(/\.(jpg|png)$/,'');return CUTOUT_NAMES.has(n)?'/'+n+'.png':IMAGES[d.file]}
 function status(s){$("#cameraStatus").textContent=s;$("#trackStatus").textContent=s}
 function hideRing(){overlay.style.display='none'}
 function showRing(){overlay.style.display='block'}
@@ -360,11 +360,15 @@ function position(x,y,w,a=0,aspect=.68){
   $("#rotRange").value=Math.max(-180,Math.min(180,angle));
   showRing();
 }
-function suitable(){return selected.type==='Ring'&&!!tryImage(selected)}
+function suitable(){return !!selected&&!!tryImage(selected)}
 function ensureRing(){
  if(suitable())return true;
- hideRing();status('Choose a ring with a transparent try-on image from the catalogue.');return false
+ hideRing();status('Choose a catalogue design for try-on.');return false
 }
+function category(){return (selected?.type||'').toLowerCase()}
+function isFaceItem(){let t=category();return t.includes('ear')||t.includes('neck')||t.includes('pendant')}
+function isHandItem(){let t=category();return t.includes('ring')||t.includes('bracelet')||t.includes('bangle')}
+function sourceGeometry(source){const iw=source.videoWidth||source.naturalWidth,ih=source.videoHeight||source.naturalHeight,cw=box.clientWidth,ch=box.clientHeight;if(!iw||!ih||!cw||!ch)return null;const scale=Math.min(cw/iw,ch/ih),rw=iw*scale,rh=ih*scale,ox=(cw-rw)/2,oy=(ch-rh)/2;return {rw,rh,cw,ch,toX:v=>((photoMode?v:1-v)*rw+ox)/cw*100,toY:v=>(v*rh+oy)/ch*100}}
 function centerTry(){manual=false;hideRing();status('Show your hand to the camera, or upload a photo.')}
 $$('.mode').forEach(b=>b.onclick=()=>{centerTry();if(photoMode)analysePhoto()});
 $("#sizeRange").oninput=e=>{
@@ -389,9 +393,9 @@ $('#fingerSelect').onchange=()=>{manual=false;hideRing();if(photoMode)analysePho
 function onRingSelected(){
  const im=$("#overlayImg"),url=tryImage(selected);
  hideRing();
- if(!url){status('This design has no isolated try-on image. Choose another ring.');return}
+ if(!url){status('This design image is unavailable for try-on.');return}
  im.src=url;im.onerror=()=>{hideRing();status('Try-on image failed to load. Please choose another ring.')};
- status('Ready · show your hand or upload a hand photo.')
+ status(isFaceItem()?'Ready · automatic face/neck placement available. Show your face or upload a photo.':isHandItem()?'Ready · automatic hand placement available. Show your hand or upload a photo.':'Ready · use live camera or a photo, then drag, resize and rotate to fine-tune.')
 }
 async function loadTracker(){
  if(ready)return true;
@@ -400,29 +404,29 @@ async function loadTracker(){
   handsModel=new Hands({locateFile:f=>'https://cdn.jsdelivr.net/npm/@mediapipe/hands/'+f});
   handsModel.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.65,minTrackingConfidence:.60});
   handsModel.onResults(r=>{
-   if(!suitable()||manual)return;
+   if(!suitable()||manual||!isHandItem())return;
    const h=r.multiHandLandmarks?.[0];
    if(!h){if(++seen>5){hideRing();status('No hand detected · hold your hand clearly in the frame.')}return}
    seen=0;
+   const source=photoMode?photo:video;
+   const g=sourceGeometry(source);if(!g)return;
+   if(category().includes('bracelet')||category().includes('bangle')){
+     const wrist=h[0],a=h[5],b=h[17];
+     const palm=Math.hypot((a.x-b.x)*g.rw,(a.y-b.y)*g.rh);
+     position(g.toX(wrist.x),g.toY(wrist.y),Math.max(60,Math.min(210,palm*1.35)),0,.48);
+     status('Wrist detected · drag, resize or rotate to fine-tune.');return;
+   }
    // Select any finger: tip indices 4,8,12,16,20. The MCP-to-PIP segment gives
    // a stable approximate base-of-finger location for a jewellery overlay.
    const tip=Number($('#fingerSelect').value);
    const base=tip===4?2:tip-3, joint=tip===4?3:tip-2;
    const p=h[base],q=h[joint];
    // Match video object-fit: contain and mirror to the actual displayed pixels.
-   const source=photoMode?photo:video;
-   const iw=source.videoWidth||source.naturalWidth,ih=source.videoHeight||source.naturalHeight;
-   const cw=box.clientWidth,ch=box.clientHeight;
-   if(!iw||!ih||!cw||!ch)return;
-   const scale=Math.min(cw/iw,ch/ih),rw=iw*scale,rh=ih*scale;
-   const ox=(cw-rw)/2,oy=(ch-rh)/2;
-   const toX=v=>((photoMode?v:1-v)*rw+ox)/cw*100;
-   const toY=v=>(v*rh+oy)/ch*100;
-   const x=toX(p.x*.55+q.x*.45),y=toY(p.y*.55+q.y*.45);
-   const palm=Math.hypot((h[5].x-h[17].x)*rw,(h[5].y-h[17].y)*rh);
-   const finger=Math.hypot((q.x-p.x)*rw,(q.y-p.y)*rh);
+   const x=g.toX(p.x*.55+q.x*.45),y=g.toY(p.y*.55+q.y*.45);
+   const palm=Math.hypot((h[5].x-h[17].x)*g.rw,(h[5].y-h[17].y)*g.rh);
+   const finger=Math.hypot((q.x-p.x)*g.rw,(q.y-p.y)*g.rh);
    const width=Math.max(26,Math.min(130,Math.max(finger*1.9,palm*(tip===4?.34:.29))));
-   const rot=Math.atan2((q.y-p.y)*rh,(photoMode?1:-1)*(q.x-p.x)*rw)*180/Math.PI-90;
+   const rot=Math.atan2((q.y-p.y)*g.rh,(photoMode?1:-1)*(q.x-p.x)*g.rw)*180/Math.PI-90;
    position(x,y,width,rot,.72);
    status('Hand detected · ' + $('#fingerSelect').selectedOptions[0].text + ' · drag to fine-tune.')
   });
@@ -459,6 +463,30 @@ $("#cameraBtn").onclick=async function(){
   if(await loadTracker())requestAnimationFrame(loop)
  }catch(e){stopCam();status('Allow camera access in Safari or Chrome.')}
 };
+async function loadFaceTracker(){
+ if(faceReady)return true;
+ if(!window.FaceMesh){status('Face tracker did not load. Check internet connection and reload.');return false}
+ try{
+  faceModel=new FaceMesh({locateFile:f=>'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/'+f});
+  faceModel.setOptions({maxNumFaces:1,refineLandmarks:true,minDetectionConfidence:.6,minTrackingConfidence:.55});
+  faceModel.onResults(r=>{
+   if(!suitable()||manual||!isFaceItem())return;const f=r.multiFaceLandmarks?.[0];
+   if(!f){hideRing();status('No face detected · keep your face and neck visible.');return}
+   const g=sourceGeometry(photoMode?photo:video);if(!g)return;
+   const left=f[234],right=f[454],chin=f[152],fore=f[10];
+   const faceW=Math.hypot((left.x-right.x)*g.rw,(left.y-right.y)*g.rh);
+   if(category().includes('ear')){
+     const side=(selected.id.charCodeAt(selected.id.length-1)%2===0)?left:right;
+     position(g.toX(side.x),g.toY(side.y+.035),Math.max(38,Math.min(150,faceW*.32)),0,1.15);
+     status('Face detected · earring positioned automatically. Drag to switch/fine-tune.');
+   }else{
+     const cx=(left.x+right.x)/2, neckY=Math.min(.96,chin.y+(chin.y-fore.y)*.30);
+     position(g.toX(cx),g.toY(neckY),Math.max(95,Math.min(260,faceW*.92)),0,.62);
+     status('Face/neck detected · necklace positioned automatically. Drag, resize or rotate to fine-tune.');
+   }
+  });faceReady=true;return true
+ }catch(e){status('Face tracker unavailable. Check internet connection.');return false}
+}
 async function analysePhoto(){
  if(!photoMode||!photo.complete||!photo.naturalWidth||!ensureRing())return;
  manual=false;hideRing();
@@ -602,7 +630,8 @@ $('#skGenerate').onclick=async()=>{
 
 fillCountries();renderCatalog();selectDesign(catalog[0]);renderSaved();centerTry();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" defer>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" defer>
 // Story-to-stone: deterministic creative design brief, no invented AI image or server storage.
 const storySymbols={star:{glyph:'✦',name:'North Star',detail:'a guiding star'},wave:{glyph:'≈',name:'Ocean',detail:'a flowing wave'},circle:{glyph:'◯',name:'Forever',detail:'an unbroken circle'},leaf:{glyph:'❧',name:'Growth',detail:'a growing leaf'},sun:{glyph:'☼',name:'Light',detail:'a rising sun'},moon:{glyph:'☾',name:'Moon',detail:'a crescent moon'}};
 const storyFeelings={belonging:'Where I belong',love:'Love, made tangible',courage:'The courage to begin',renewal:'A beautiful new chapter',remembrance:'Always with me',joy:'A little more light',freedom:'Made to be free'};
@@ -613,7 +642,7 @@ $('#memoryCreate').addEventListener('click',storyGenerate);
 $('#memoryReset').addEventListener('click',()=>{$('#memoryMoment').value='';$('#memoryFeeling').selectedIndex=0;$('#memoryMetal').selectedIndex=0;$('#memoryPiece').selectedIndex=0;storyBrief='';$('#storyName').textContent='A story worth keeping.';$('#storyDescription').textContent='Tell us what matters. We’ll turn your choices into a personal design brief and a keepsake you can save.';$('#storyGlyph').textContent='✦';$('#memorySketch').disabled=true;$('#memoryPassport').disabled=true;$('#memoryStatus').textContent='Start with a meaningful memory.'});
 $('#memorySketch').addEventListener('click',()=>{if(!storyBrief)return;$('#skNotes').value=storyBrief;$('#skType').value=$('#memoryPiece').value;$('#skMetal').value=$('#memoryMetal').value;$('#skStatus').textContent='Your story has been carried into the design notes. Draw your idea or upload a reference, then generate a concept when the AI service is enabled.';go('sketch-studio')});
 function storyEscape(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('#memoryPassport').addEventListener('click',()=>{if(!storyBrief)return;const doc='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZEVORA — My Heirloom Passport</title><style>body{max-width:760px;margin:8vh auto;padding:35px;font:17px/1.8 Georgia,serif;background:#f4f0e9;color:#33271e}header{font:34px Georgia,serif;letter-spacing:.2em;border-bottom:1px solid #ad9475;padding-bottom:20px}h1{font-weight:400;font-size:48px}pre{white-space:pre-wrap;font:16px/1.8 Georgia,serif;border-top:1px solid #ad9475;padding-top:22px}small{color:#7a6653}</style><header>✦ ZEVORA</header><h1>My heirloom passport.</h1><pre>'+storyEscape(storyBrief)+'</pre><small>Saved by you, on your device. A creative brief only. No purchase or production has been arranged.</small></html>';const blob=new Blob([doc],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ZEVORA-my-heirloom-passport.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);$('#memoryStatus').textContent='Your personal story passport has been downloaded to this device.'});
+$('#memoryPassport').addEventListener('click',()=>{if(!storyBrief)return;const doc='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZEVORA — My Heirloom Passport</title><style>body{max-width:760px;margin:8vh auto;padding:35px;font:17px/1.8 Georgia,serif;background:#f4f0e9;color:#33271e}header{font:34px Georgia,serif;letter-spacing:.2em;border-bottom:1px solid #ad9475;padding-bottom:20px}h1{font-weight:400;font-size:48px}pre{white-space:pre-wrap;font:16px/1.8 Georgia,serif;border-top:1px solid #ad9475;padding-top:22px}small{color:#7a6653}.card-try{width:calc(100% - 24px);margin:0 12px 14px;padding:10px 12px}\n</style><header>✦ ZEVORA</header><h1>My heirloom passport.</h1><pre>'+storyEscape(storyBrief)+'</pre><small>Saved by you, on your device. A creative brief only. No purchase or production has been arranged.</small></html>';const blob=new Blob([doc],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ZEVORA-my-heirloom-passport.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);$('#memoryStatus').textContent='Your personal story passport has been downloaded to this device.'});
 </script>
 
 <script>
@@ -624,7 +653,7 @@ genPhotoInput.addEventListener('change',()=>{const file=genPhotoInput.files&&gen
 function genBrief(){const memory=document.getElementById('genMemory').value.trim(),piece=document.getElementById('genPiece').value,metal=document.getElementById('genMetal').value,detail=document.getElementById('genDetail').value.trim();return{memory,piece,metal,detail,summary:'Inspired by: '+memory+'\n\nA new '+piece.toLowerCase()+' in '+metal.toLowerCase()+(detail?', carrying forward '+detail+'.':'.')}}
 document.getElementById('genCreate').addEventListener('click',()=>{const b=genBrief();if(!b.memory){document.getElementById('genStatus').textContent='Add the memory behind your design first.';document.getElementById('genMemory').focus();return}genPassport=b.summary;document.getElementById('genTitle').textContent='A '+b.piece.toLowerCase()+' to carry your story.';document.getElementById('genSummary').textContent=b.summary;document.getElementById('genDownload').disabled=false;document.getElementById('genStatus').textContent='Your design direction is ready. Download the keepsake or take it into Dream Studio.'});
 document.getElementById('genToSketch').addEventListener('click',()=>{const b=genBrief();if(!b.memory){document.getElementById('genStatus').textContent='Add your story first.';return}const notes=document.getElementById('skNotes');if(notes)notes.value='ZEVORA GENERATIONS — '+b.summary;const type=document.getElementById('skType');if(type){const option=Array.from(type.options).find(o=>o.text.toLowerCase()===b.piece.toLowerCase());if(option)type.value=option.value}document.getElementById('sketch-studio').scrollIntoView({behavior:'smooth'});document.getElementById('genStatus').textContent='Your story has been copied into Dream Studio. Add a sketch to explore a visual concept.'});
-document.getElementById('genDownload').addEventListener('click',()=>{if(!genPassport)return;const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const photo=genPhotoData?'<img style="width:100%;max-height:400px;object-fit:contain;border-radius:16px" src="'+genPhotoData+'" alt="Family inspiration">':'';const documentHTML='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZEVORA Generations Passport</title><style>body{max-width:780px;margin:40px auto;padding:28px;font:18px/1.7 Georgia,serif;background:#f7f3eb;color:#35271d}header{letter-spacing:.25em;font-size:28px;color:#8c652f;border-bottom:1px solid #a98b59;padding-bottom:20px}h1{font-size:42px;font-weight:400}pre{font:17px/1.7 Georgia,serif;white-space:pre-wrap}small{font:12px sans-serif;color:#766b5e}</style><header>✧ ZEVORA · SINCE 1985</header><h1>My Generations Passport</h1>'+photo+'<pre>'+esc(genPassport)+'</pre><small>Personal design inspiration. No order or manufacturing commitment. Your photograph was included only in this local download.</small></html>';const blob=new Blob([documentHTML],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ZEVORA-Generations-Passport.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);document.getElementById('genStatus').textContent='Your passport was downloaded to this device.'});
+document.getElementById('genDownload').addEventListener('click',()=>{if(!genPassport)return;const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const photo=genPhotoData?'<img style="width:100%;max-height:400px;object-fit:contain;border-radius:16px" src="'+genPhotoData+'" alt="Family inspiration">':'';const documentHTML='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZEVORA Generations Passport</title><style>body{max-width:780px;margin:40px auto;padding:28px;font:18px/1.7 Georgia,serif;background:#f7f3eb;color:#35271d}header{letter-spacing:.25em;font-size:28px;color:#8c652f;border-bottom:1px solid #a98b59;padding-bottom:20px}h1{font-size:42px;font-weight:400}pre{font:17px/1.7 Georgia,serif;white-space:pre-wrap}small{font:12px sans-serif;color:#766b5e}.card-try{width:calc(100% - 24px);margin:0 12px 14px;padding:10px 12px}\n</style><header>✧ ZEVORA · SINCE 1985</header><h1>My Generations Passport</h1>'+photo+'<pre>'+esc(genPassport)+'</pre><small>Personal design inspiration. No order or manufacturing commitment. Your photograph was included only in this local download.</small></html>';const blob=new Blob([documentHTML],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ZEVORA-Generations-Passport.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);document.getElementById('genStatus').textContent='Your passport was downloaded to this device.'});
 </script>
 
 <script>
@@ -637,6 +666,7 @@ document.getElementById('genDownload').addEventListener('click',()=>{if(!genPass
  function hide(){dlg.hidden=true;document.body.style.overflow='';if(previous&&previous.isConnected)previous.focus()}
  close.addEventListener('click',hide);dlg.addEventListener('click',e=>{if(e.target===dlg)hide()});document.addEventListener('keydown',e=>{if(dlg.hidden)return;if(e.key==='Escape')hide();if(e.key==='Tab'){const a=[...dlg.querySelectorAll('button:not([disabled])')],first=a[0],last=a[a.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
  document.getElementById('catalog').addEventListener('click',e=>{if(e.target.closest('.card-zoom'))return;const card=e.target.closest('.card');if(card)show(catalog.find(d=>d.id===card.dataset.id))});
+ document.getElementById('productTry').addEventListener('click',()=>{selectDesign(product);hide();go('tryon')});
  document.getElementById('productExplore').addEventListener('click',()=>{selectDesign(product,true);hide();document.getElementById('studio')?.scrollIntoView({behavior:'smooth'});});
  document.getElementById('productSave').addEventListener('click',()=>{selectDesign(product);saveDesign();document.getElementById('productSave').textContent='Saved ✓'});
  document.getElementById('productEnquire').addEventListener('click',()=>{selectDesign(product);hide();document.getElementById('quoteBtn').click()});
