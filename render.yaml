@@ -9,3 +9,7 @@ services:
         sync: false
       - key: ENABLE_PUBLIC_GENERATION
         value: "false"
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ENABLE_AI_STYLIST
+        value: "false"

@@ -1,0 +1,9 @@
+ZEVORA 14 UPDATE - how to upload
+1. Unzip this folder.
+2. Upload EVERYTHING inside zevora_update/ to the ROOT of your GitHub repo (Add file > Upload files), replacing files with the same name. Keep the cutouts folder as a folder.
+3. On Render, Environment tab (optional, for the AI stylist):
+   ANTHROPIC_API_KEY = your key
+   ENABLE_AI_STYLIST = true
+   (Without these the stylist button still works as a keyword "Quick match".)
+4. Open index.html and fill ZEVORA_CONTACT with your email and WhatsApp number.
+5. Hard-refresh the site (browsers may cache old images for up to an hour).
