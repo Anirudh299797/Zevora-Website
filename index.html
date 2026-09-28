@@ -149,7 +149,6 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 @media(max-width:420px){.app{padding-left:12px;padding-right:12px}.catalog{gap:8px}.card{padding:7px}.card-photo img{height:160px}.card h3{font-size:15px}.card-row{align-items:flex-start;flex-direction:column}.card-zoom{width:30px;height:30px}.navright{gap:3px}.hero h1{font-size:43px}}
 @media(prefers-reduced-motion:reduce){.card-photo img,.card{transition:none!important}}
 .card-try{width:calc(100% - 24px);margin:0 12px 14px;padding:10px 12px}\n</style>
-<meta property="og:title" content="ZEVORA - Family Jewellery Heritage Since 1985"><meta property="og:description" content="Explore designs, sketch your own piece and try jewellery on virtually."><meta property="og:type" content="website"><script type="application/ld+json">{"@context":"https://schema.org","@type":"JewelryStore","name":"ZEVORA","foundingDate":"1985","description":"Family jewellery heritage since 1985 with custom design studio and virtual try-on."}</script>
 </head>
 <body>
 <div class="announcement">ZEVORA / FAMILY HERITAGE SINCE 1985 <span>✦</span> MADE FOR THE STORIES WE KEEP <span>✦</span> DISCOVER · IMAGINE · CREATE</div>
@@ -206,7 +205,7 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 <div class="toolbar"><div class="search"><input id="search" placeholder="Search temple, emerald, pearl, Celtic, sapphire…"></div>
 <button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Ring">Rings</button><button class="filter" data-filter="Necklace">Necklaces</button><button class="filter" data-filter="Earrings">Earrings</button><button class="filter" data-filter="Bracelet">Bracelets</button>
 </div>
-<p class="catalog-note">NEW: All 21 photographed family designs plus 18 AI heritage interpretations, alongside the original 19 global designs. Family Archive entries are enhanced, higher-resolution crops of the original tray photographs (seven have cleaned backgrounds). Heritage AI Concepts are upscaled and sharpened crops of an AI illustration. Enhancement improves clarity but cannot add detail the original photo did not capture. Materials and prices require confirmation. </p><p class="catalog-note">Explore each design for its story, materials and an indicative price. Visuals are design concepts; specifications and availability require confirmation before ordering.</p><div class="catalog" id="catalog"></div>
+<p class="catalog-note">NEW: All 21 photographed family designs plus 18 AI heritage interpretations, alongside the original 19 global designs. Family Archive entries are crops of the original tray photographs; Heritage AI Concepts are crops of an AI illustration. Cropped photographs are not newly generated HD renders. Materials and prices require confirmation. </p><p class="catalog-note">Explore each design for its story, materials and an indicative price. Visuals are design concepts; specifications and availability require confirmation before ordering.</p><div class="catalog" id="catalog"></div>
 </section>
 
 <section class="section" id="signature"><div class="head"><div><div class="kicker">MADE PERSONAL</div><h2>The Signature Studio.</h2></div><div class="sub">Build a brief · explore matching pieces</div></div>
@@ -275,7 +274,7 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 <section class="section" id="tryon">
 <div class="head"><div><div class="kicker">Virtual Try-On</div><h2>Try on every ZEVORA design</h2></div><div class="sub">Rings · earrings · necklaces · bracelets · live or photo</div></div>
 <div class="trygrid">
-<div class="panel modes"><button class="mode active" data-mode="ring">✦ All Jewellery Try-On</button><label for="fingerSelect">Choose your finger</label><select id="fingerSelect"><option value="8">Index finger</option><option value="12">Middle finger</option><option value="16" selected>Ring finger</option><option value="20">Little finger</option><option value="4">Thumb</option></select><div class="try-note">Move the ring between all five fingers. Tracking follows your selected finger; drag or resize for a closer fit. Use good lighting and keep your whole hand visible.</div>
+<div class="panel modes"><button class="mode active" type="button">✦ Smart Jewellery Try-On</button><label for="tryType">1. What do you want to try?</label><select id="tryType"><option value="ring">Ring</option><option value="earring">Earrings</option><option value="necklace">Necklace / Pendant</option><option value="bracelet">Bracelet / Bangle</option></select><label for="tryDesign">2. Choose a ZEVORA design</label><select id="tryDesign"></select><div id="fingerWrap"><label for="fingerSelect">3. Choose your finger</label><select id="fingerSelect"><option value="8">Index finger</option><option value="12">Middle finger</option><option value="16" selected>Ring finger</option><option value="20">Little finger</option><option value="4">Thumb</option></select></div><div class="try-note" id="fitHint">Choose a category and design. ZEVORA will detect the matching body area and fit the piece automatically; drag, resize or rotate only if you want to fine-tune it.</div>
 <button class="gold" id="cameraBtn">Start Live Camera</button><p class="try-note" id="trackStatus">Select any catalogue design. Rings and bracelets support hand tracking; earrings and necklaces support face/neck tracking; every design also supports manual fine-tuning.</p><label>Or upload a photo</label><input id="photoInput" type="file" accept="image/*"><label>Size</label><input id="sizeRange" type="range" min="60" max="360" value="150"><label>Rotation</label><input id="rotRange" type="range" min="-180" max="180" value="0"><div class="actions"><button class="btn" id="centerBtn">Reset Position</button><button class="gold" id="snapshotBtn">Save Try-On Photo</button></div><p class="try-note">Landmark-assisted try-on with automatic ring, wrist, earring and necklace placement. Drag, resize and rotate to fine-tune. Visual approximation only; not a physical sizing guarantee.</p></div>
 <div class="camera" id="cameraBox"><div class="badge" id="cameraStatus">Camera off</div><video id="video" autoplay muted playsinline></video><img id="photo" class="photo"><div class="overlay" id="overlay" style="display:none"><img id="overlayImg"></div><canvas id="exportCanvas" hidden></canvas></div>
 </div>
@@ -286,7 +285,7 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 <footer class="site-footer"><div class="footer-brand">ZEVORA <span>✦</span></div><p>Family jewellery heritage since 1985. Your story is our next chapter.</p><div><button onclick="go('our-story')">Our Story</button><button onclick="go('generations')">Generations Passport</button><button onclick="go('edits')">Collections</button><button onclick="go('signature')">Design Studio</button><button onclick="go('sketch-studio')">Sketch Your Dream</button><button onclick="go('tryon')">All Jewellery Try-On</button><button onclick="go('moodboard')">Saved Designs</button></div><small>Catalogue prices are illustrative, not final quotations. Virtual try-on is an illustrative overlay. © ZEVORA · Family jewellery heritage since 1985</small></footer></main>
 <div class="zoom-modal" id="zoomModal" role="dialog" aria-modal="true" aria-label="Jewellery detail image" hidden><button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button><img id="zoomImg" alt="Jewellery close-up"></div>
 
-<div class="modal" id="loginModal"><div class="modalcard" style="max-width:430px"><div class="modalhead"><h2>Admin Access</h2><button class="btn" onclick="closeLogin()">Close</button></div><label style="display:block;margin-top:16px;color:var(--muted);font-size:12px">Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN" style="width:100%;margin-top:7px;border:1px solid var(--line);background:#0e1014;color:#fff;padding:12px;border-radius:13px"><div class="actions"><button class="gold" id="loginBtn">Unlock Pricing</button></div><div class="notice">Enter the admin PIN to edit pricing.</div></div></div>
+<div class="modal" id="loginModal"><div class="modalcard" style="max-width:430px"><div class="modalhead"><h2>Admin Access</h2><button class="btn" onclick="closeLogin()">Close</button></div><label style="display:block;margin-top:16px;color:var(--muted);font-size:12px">Admin PIN</label><input id="pinInput" type="password" placeholder="Enter PIN" style="width:100%;margin-top:7px;border:1px solid var(--line);background:#0e1014;color:#fff;padding:12px;border-radius:13px"><div class="actions"><button class="gold" id="loginBtn">Unlock Pricing</button></div><div class="notice">Default local-demo PIN: <b>2468</b>. Change it after login. This PIN protects the local app UI only; a public production website needs server-side authentication.</div></div></div>
 
 <div class="modal" id="adminModal">
 <div class="modalcard">
@@ -310,10 +309,6 @@ html{scroll-padding-top:105px}body{background:#f4f0e9;color:var(--ink);font-fami
 </div>
 <div class="toast" id="toast"></div>
 <script>
-/* ZEVORA CONTACT SETTINGS - fill these in. Enquiry emails go to EMAIL; WhatsApp button appears when WHATSAPP is set (digits with country code, e.g. 61400000000). */
-window.ZEVORA_CONTACT={email:"",whatsapp:""};
-</script>
-<script>
 const IMAGES={"heritage_concept_01.jpg":"/heritage_concept_01.jpg","heritage_concept_02.jpg":"/heritage_concept_02.jpg","heritage_concept_03.jpg":"/heritage_concept_03.jpg","heritage_concept_04.jpg":"/heritage_concept_04.jpg","heritage_concept_05.jpg":"/heritage_concept_05.jpg","heritage_concept_06.jpg":"/heritage_concept_06.jpg","heritage_concept_07.jpg":"/heritage_concept_07.jpg","heritage_concept_08.jpg":"/heritage_concept_08.jpg","heritage_concept_09.jpg":"/heritage_concept_09.jpg","heritage_concept_10.jpg":"/heritage_concept_10.jpg","heritage_concept_11.jpg":"/heritage_concept_11.jpg","heritage_concept_12.jpg":"/heritage_concept_12.jpg","heritage_concept_13.jpg":"/heritage_concept_13.jpg","heritage_concept_14.jpg":"/heritage_concept_14.jpg","heritage_concept_15.jpg":"/heritage_concept_15.jpg","heritage_concept_16.jpg":"/heritage_concept_16.jpg","heritage_concept_17.jpg":"/heritage_concept_17.jpg","heritage_concept_18.jpg":"/heritage_concept_18.jpg","arabic_filigree_ring.png":"/arabic_filigree_ring.jpg","bridal_necklace.png":"/bridal_necklace.jpg","celtic_knot_ring.png":"/celtic_knot_ring.png","emerald_halo.png":"/emerald_halo.png","emerald_ring.png":"/emerald_ring.png","gold_bangle.png":"/gold_bangle.jpg","gold_earrings.png":"/gold_earrings.jpg","heritage_earrings.png":"/heritage_earrings.png","kundan_ring.png":"/kundan_ring.png","mens_ring.png":"/mens_ring.jpg","minimal_necklace.png":"/minimal_necklace.jpg","modern_solitaire.png":"/modern_solitaire.png","oval_halo.png":"/oval_halo.png","pearl_drop_earrings.png":"/pearl_drop_earrings.png","royal_temple_ring.png":"/royal_temple_ring.png","sapphire_bracelet.png":"/sapphire_bracelet.jpg","sapphire_ring.png":"/sapphire_ring.png","solitaire_elegance.png":"/solitaire_elegance.png","temple_necklace.png":"/temple_necklace.jpg","family_original_1_01.jpg":"/family_original_1_01.jpg","family_original_1_02.jpg":"/family_original_1_02.jpg","family_original_1_03.jpg":"/family_original_1_03.jpg","family_original_1_04.jpg":"/family_original_1_04.jpg","family_original_1_05.jpg":"/family_original_1_05.jpg","family_original_1_06.jpg":"/family_original_1_06.jpg","family_original_1_07.jpg":"/family_original_1_07.jpg","family_original_1_08.jpg":"/family_original_1_08.jpg","family_original_1_09.jpg":"/family_original_1_09.jpg","family_original_1_10.jpg":"/family_original_1_10.jpg","family_original_1_11.jpg":"/family_original_1_11.jpg","family_original_1_12.jpg":"/family_original_1_12.jpg","family_original_2_01.jpg":"/family_original_2_01.jpg","family_original_2_02.jpg":"/family_original_2_02.jpg","family_original_2_03.jpg":"/family_original_2_03.jpg","family_original_2_04.jpg":"/family_original_2_04.jpg","family_original_2_05.jpg":"/family_original_2_05.jpg","family_original_2_06.jpg":"/family_original_2_06.jpg","family_original_2_07.jpg":"/family_original_2_07.jpg","family_original_2_08.jpg":"/family_original_2_08.jpg","family_original_2_09.jpg":"/family_original_2_09.jpg"};
 const catalog=[{"id":"heritage-concept-01","name":"Twilight Wave Ring","file":"heritage_concept_01.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept twilight wave ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-02","name":"Royal Ruby Halo Ring","file":"heritage_concept_02.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Ruby-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept royal ruby halo ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-03","name":"Golden Knot Ring","file":"heritage_concept_03.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept golden knot ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-04","name":"Floral Cluster Ring","file":"heritage_concept_04.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept floral cluster ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-05","name":"Braid Dome Ring","file":"heritage_concept_05.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept braid dome ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-06","name":"Cascade Ring","file":"heritage_concept_06.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept cascade ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-07","name":"Heritage Square Ring","file":"heritage_concept_07.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept heritage square ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-08","name":"Regal Ruby Ring","file":"heritage_concept_08.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Ruby-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept regal ruby ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-09","name":"Crown Curve Ring","file":"heritage_concept_09.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept crown curve ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-10","name":"Royal Crest Ring","file":"heritage_concept_10.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept royal crest ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-11","name":"Serenity Ring","file":"heritage_concept_11.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept serenity ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-12","name":"Emerald Blossom Ring","file":"heritage_concept_12.jpg","type":"Ring","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Emerald & ruby-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept emerald blossom ring ring 1985 family collection","quoteOnly":true},{"id":"heritage-concept-13","name":"Swan Drop Earrings","file":"heritage_concept_13.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept swan drop earrings earrings 1985 family collection","quoteOnly":true},{"id":"heritage-concept-14","name":"Modern Link Earrings","file":"heritage_concept_14.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept modern link earrings earrings 1985 family collection","quoteOnly":true},{"id":"heritage-concept-15","name":"Classic Oval Earrings","file":"heritage_concept_15.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept classic oval earrings earrings 1985 family collection","quoteOnly":true},{"id":"heritage-concept-16","name":"Floral Stud Earrings","file":"heritage_concept_16.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept floral stud earrings earrings 1985 family collection","quoteOnly":true},{"id":"heritage-concept-17","name":"Elegant Drop Earrings","file":"heritage_concept_17.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept elegant drop earrings earrings 1985 family collection","quoteOnly":true},{"id":"heritage-concept-18","name":"Trinity Stud Earrings","file":"heritage_concept_18.jpg","type":"Earrings","region":"ZEVORA Heritage Designs","style":"1985 Family Collection · AI Concept","material":"Gold design concept — unverified","weight":0,"gem":"Diamond-inspired — unverified","stoneAUD":0,"craftAUD":0,"keywords":"heritage concept trinity stud earrings earrings 1985 family collection","quoteOnly":true},{"id":"kundan","name":"Royal Kundan Ring","file":"kundan_ring.png","type":"Ring","region":"South Asian","style":"Kundan","material":"22K Gold","weight":10.5,"gem":"Ruby + Diamond","stoneAUD":1450,"craftAUD":620,"keywords":"kundan royal indian bridal ruby diamond ornate"},{"id":"temple-ring","name":"Temple Ruby Ring","file":"royal_temple_ring.png","type":"Ring","region":"South Asian","style":"Temple","material":"22K Gold","weight":12.0,"gem":"Ruby","stoneAUD":900,"craftAUD":850,"keywords":"temple south indian heritage ruby gold traditional"},{"id":"temple-necklace","name":"Temple Heritage Necklace","file":"temple_necklace.png","type":"Necklace","region":"South Asian","style":"Temple","material":"22K Gold","weight":44.0,"gem":"Ruby + Pearl","stoneAUD":2300,"craftAUD":1900,"keywords":"temple necklace south asian bridal heritage"},{"id":"heritage-earrings","name":"Heritage Jhumka Earrings","file":"heritage_earrings.png","type":"Earrings","region":"South Asian","style":"Heritage","material":"22K Gold","weight":18.0,"gem":"Diamond","stoneAUD":1200,"craftAUD":1100,"keywords":"jhumka temple earrings indian south asian heritage"},{"id":"arabic","name":"Arabesque Filigree Ring","file":"arabic_filigree_ring.png","type":"Ring","region":"Middle East & North Africa","style":"Filigree","material":"18K Gold","weight":9.5,"gem":"Ruby + Diamond","stoneAUD":1150,"craftAUD":780,"keywords":"arabic arabesque filigree middle east mena ruby gold"},{"id":"pearl","name":"Japanese Pearl Drops","file":"pearl_drop_earrings.png","type":"Earrings","region":"East Asian","style":"Modern Pearl","material":"18K Gold","weight":7.0,"gem":"Pearl + Diamond","stoneAUD":720,"craftAUD":450,"keywords":"japan japanese pearl drop earrings east asian"},{"id":"celtic","name":"Celtic Knot Ring","file":"celtic_knot_ring.png","type":"Ring","region":"Europe & Atlantic","style":"Celtic Knot","material":"18K Gold","weight":8.0,"gem":"None","stoneAUD":0,"craftAUD":560,"keywords":"celtic ireland knot european atlantic ring"},{"id":"oval-halo","name":"Classic Oval Halo","file":"oval_halo.png","type":"Ring","region":"Europe & Atlantic","style":"Classic Halo","material":"18K White Gold","weight":7.2,"gem":"Diamond","stoneAUD":2050,"craftAUD":590,"keywords":"classic european oval halo diamond engagement"},{"id":"solitaire","name":"Modern Solitaire","file":"modern_solitaire.png","type":"Ring","region":"North American","style":"Modern Bridal","material":"Platinum","weight":8.5,"gem":"Diamond","stoneAUD":1850,"craftAUD":520,"keywords":"usa american solitaire engagement modern bridal diamond"},{"id":"solitaire2","name":"Solitaire Elegance","file":"solitaire_elegance.png","type":"Ring","region":"North American","style":"Minimal Luxe","material":"18K White Gold","weight":6.8,"gem":"Diamond","stoneAUD":1650,"craftAUD":470,"keywords":"american usa solitaire elegant minimal diamond"},{"id":"emerald","name":"Emerald Halo Ring","file":"emerald_ring.png","type":"Ring","region":"Global Contemporary","style":"Gemstone Halo","material":"18K Gold","weight":8.0,"gem":"Emerald + Diamond","stoneAUD":1900,"craftAUD":650,"keywords":"emerald halo contemporary ring green gemstone"},{"id":"sapphire","name":"Sapphire Dream Ring","file":"sapphire_ring.png","type":"Ring","region":"Global Contemporary","style":"Vintage Halo","material":"18K Rose Gold","weight":8.2,"gem":"Sapphire + Diamond","stoneAUD":1950,"craftAUD":680,"keywords":"sapphire blue vintage halo rose gold ring"},{"id":"sapphire-bracelet","name":"Sapphire Tennis Bracelet","file":"sapphire_bracelet.png","type":"Bracelet","region":"Global Contemporary","style":"Tennis Luxe","material":"18K White Gold","weight":13.5,"gem":"Sapphire + Diamond","stoneAUD":2550,"craftAUD":850,"keywords":"sapphire bracelet tennis luxury contemporary"},{"id":"bangle","name":"Diamond Gold Bangle","file":"gold_bangle.png","type":"Bracelet","region":"North American","style":"Everyday Luxe","material":"18K Gold","weight":21.0,"gem":"Diamond","stoneAUD":1400,"craftAUD":720,"keywords":"gold bangle diamond everyday luxury american"},{"id":"bridal-necklace","name":"Diamond Bridal Necklace","file":"bridal_necklace.png","type":"Necklace","region":"Global Contemporary","style":"Bridal","material":"18K White Gold","weight":32.0,"gem":"Diamond","stoneAUD":5200,"craftAUD":1600,"keywords":"diamond bridal necklace luxury global"},{"id":"minimal-necklace","name":"Minimal Diamond Pendant","file":"minimal_necklace.png","type":"Necklace","region":"Pacific","style":"Island Minimal","material":"18K White Gold","weight":5.0,"gem":"Diamond","stoneAUD":520,"craftAUD":300,"keywords":"pacific minimal pendant diamond necklace ocean island"},{"id":"gold-earrings","name":"Modern Gold Hoops","file":"gold_earrings.png","type":"Earrings","region":"Latin American","style":"Modern Heritage","material":"18K Gold","weight":9.0,"gem":"Diamond","stoneAUD":680,"craftAUD":420,"keywords":"latin american modern heritage gold hoops earrings"},{"id":"mens","name":"Sculptural Men's Ring","file":"mens_ring.png","type":"Ring","region":"African","style":"Sculptural Metal","material":"Platinum","weight":12.0,"gem":"None","stoneAUD":0,"craftAUD":720,"keywords":"african sculptural metal bold mens ring contemporary"},{"id":"emerald-halo","name":"Emerald Statement Ring","file":"emerald_halo.png","type":"Ring","region":"Global Contemporary","style":"Emerald Statement","material":"18K White Gold","weight":9.0,"gem":"Emerald + Diamond","stoneAUD":2300,"craftAUD":700,"keywords":"emerald statement halo diamond ring"},{"id":"family-original-1-01","name":"Twilight Wave Original","file":"family_original_1_01.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph twilight wave original ring","quoteOnly":true},{"id":"family-original-1-02","name":"Ruby Halo Original","file":"family_original_1_02.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph ruby halo original ring","quoteOnly":true},{"id":"family-original-1-03","name":"Golden Knot Original","file":"family_original_1_03.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph golden knot original ring","quoteOnly":true},{"id":"family-original-1-04","name":"Floral Cluster Original","file":"family_original_1_04.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph floral cluster original ring","quoteOnly":true},{"id":"family-original-1-05","name":"Braid Dome Original","file":"family_original_1_05.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph braid dome original ring","quoteOnly":true},{"id":"family-original-1-06","name":"Cascade Original","file":"family_original_1_06.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph cascade original ring","quoteOnly":true},{"id":"family-original-1-07","name":"Heritage Square Original","file":"family_original_1_07.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph heritage square original ring","quoteOnly":true},{"id":"family-original-1-08","name":"Regal Ruby Original","file":"family_original_1_08.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph regal ruby original ring","quoteOnly":true},{"id":"family-original-1-09","name":"Crown Curve Original","file":"family_original_1_09.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph crown curve original ring","quoteOnly":true},{"id":"family-original-1-10","name":"Royal Crest Original","file":"family_original_1_10.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph royal crest original ring","quoteOnly":true},{"id":"family-original-1-11","name":"Serenity Original","file":"family_original_1_11.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph serenity original ring","quoteOnly":true},{"id":"family-original-1-12","name":"Emerald Blossom Original","file":"family_original_1_12.jpg","type":"Ring","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph emerald blossom original ring","quoteOnly":true},{"id":"family-original-2-01","name":"Swan Drop Original","file":"family_original_2_01.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph swan drop original earrings","quoteOnly":true},{"id":"family-original-2-02","name":"Modern Link Original","file":"family_original_2_02.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph modern link original earrings","quoteOnly":true},{"id":"family-original-2-03","name":"Classic Oval Original","file":"family_original_2_03.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph classic oval original earrings","quoteOnly":true},{"id":"family-original-2-04","name":"Floral Stud Original","file":"family_original_2_04.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph floral stud original earrings","quoteOnly":true},{"id":"family-original-2-05","name":"Elegant Drop Original","file":"family_original_2_05.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph elegant drop original earrings","quoteOnly":true},{"id":"family-original-2-06","name":"Floral Burst Original","file":"family_original_2_06.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph floral burst original earrings","quoteOnly":true},{"id":"family-original-2-07","name":"Crown Floral Original","file":"family_original_2_07.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph crown floral original earrings","quoteOnly":true},{"id":"family-original-2-08","name":"Crystal Drop Original","file":"family_original_2_08.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph crystal drop original earrings","quoteOnly":true},{"id":"family-original-2-09","name":"Trinity Stud Original","file":"family_original_2_09.jpg","type":"Earrings","region":"1985 Family Archive · Original Photographs","style":"Family collection · Original photo","material":"Metal and purity to be confirmed","weight":0,"gem":"Gemstones to be confirmed","stoneAUD":0,"craftAUD":0,"keywords":"family original photograph trinity stud original earrings","quoteOnly":true}];
 const DEFAULTS={"rates": {"24K Gold": 145.0, "22K Gold": 133.0, "18K Gold": 109.0, "18K White Gold": 112.0, "18K Rose Gold": 111.0, "Platinum": 58.0, "Silver": 1.75}, "markup": 22, "labourMultiplier": 1.0, "countries": {"AU": {"name": "Australia", "currency": "AUD", "symbol": "A$", "fx": 1.0, "tax": 10}, "IN": {"name": "India", "currency": "INR", "symbol": "\u20b9", "fx": 55.0, "tax": 3}, "US": {"name": "United States", "currency": "USD", "symbol": "$", "fx": 0.66, "tax": 0}, "GB": {"name": "United Kingdom", "currency": "GBP", "symbol": "\u00a3", "fx": 0.5, "tax": 20}, "CA": {"name": "Canada", "currency": "CAD", "symbol": "C$", "fx": 0.9, "tax": 5}, "NZ": {"name": "New Zealand", "currency": "NZD", "symbol": "NZ$", "fx": 1.09, "tax": 15}, "AE": {"name": "United Arab Emirates", "currency": "AED", "symbol": "AED ", "fx": 2.42, "tax": 5}, "SG": {"name": "Singapore", "currency": "SGD", "symbol": "S$", "fx": 0.86, "tax": 9}, "JP": {"name": "Japan", "currency": "JPY", "symbol": "\u00a5", "fx": 98.0, "tax": 10}, "EU": {"name": "European Union", "currency": "EUR", "symbol": "\u20ac", "fx": 0.57, "tax": 20}}, "adminPin": "2468"};
@@ -332,7 +327,7 @@ function calcLocal(d,c=country){let x=settings.countries[c],aud=calcAUD(d),taxed
 function breakdown(d){let x=settings.countries[country],base=calcAUD(d);return `${d.weight.toFixed(1)} g ${d.material} · ${d.gem} · markup ${settings.markup}% · ${x.tax}% local tax`}
 function detectCountry(){let lang=(navigator.language||"").toUpperCase(),tz="";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){};if(lang.includes("-AU")||tz.startsWith("Australia/"))return"AU";if(lang.includes("-IN")||tz==="Asia/Kolkata")return"IN";if(lang.includes("-GB")||tz==="Europe/London")return"GB";if(lang.includes("-NZ")||tz.startsWith("Pacific/Auckland"))return"NZ";if(lang.includes("-CA"))return"CA";if(lang.includes("-SG")||tz==="Asia/Singapore")return"SG";if(lang.includes("-JP")||tz==="Asia/Tokyo")return"JP";if(lang.includes("-AE")||tz==="Asia/Dubai")return"AE";if(lang.includes("-US"))return"US";return"AU"}
 function fillCountries(){let s=$("#countrySelect"),h="";Object.entries(settings.countries).forEach(([k,v])=>h+=`<option value="${k}">${v.name} · ${v.currency}</option>`);s.innerHTML=h;country=detectCountry();if(!settings.countries[country])country="AU";s.value=country}
-function selectDesign(d,scroll=false){selected=d;$("#heroImg").src=IMAGES[d.file];$("#heroName").textContent=d.name;$("#heroDesc").textContent=d.region+" · "+d.style+" · "+d.gem;$("#previewImg").src=IMAGES[d.file];onRingSelected();$("#heroPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#previewMeta").innerHTML=[d.name,d.type,d.region,d.style,d.material,d.gem].map(x=>`<span class="chip">${x}</span>`).join("");$("#designId").textContent="ZEVORA · "+d.id.toUpperCase();$("#studioPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#priceCountry").textContent=settings.countries[country].name;$("#priceBreakdown").textContent=breakdown(d);renderCatalog();if(scroll)go("studio")}
+function selectDesign(d,scroll=false){selected=d;if($('#tryType')){$('#tryType').value=tryGroup(d);populateTryDesigns(true);} $("#heroImg").src=IMAGES[d.file];$("#heroName").textContent=d.name;$("#heroDesc").textContent=d.region+" · "+d.style+" · "+d.gem;$("#previewImg").src=IMAGES[d.file];onRingSelected();$("#heroPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#previewMeta").innerHTML=[d.name,d.type,d.region,d.style,d.material,d.gem].map(x=>`<span class="chip">${x}</span>`).join("");$("#designId").textContent="ZEVORA · "+d.id.toUpperCase();$("#studioPrice").textContent=(d.quoteOnly?'Quote on request':money(calcLocal(d),country));$("#priceCountry").textContent=settings.countries[country].name;$("#priceBreakdown").textContent=breakdown(d);renderCatalog();if(scroll)go("studio")}
 function renderCatalog(){let q=$("#search").value.toLowerCase().trim(),a=catalog.filter(d=>(filter==="All"||d.type===filter)&&(!q||(d.name+" "+d.region+" "+d.style+" "+d.material+" "+d.gem+" "+d.keywords).toLowerCase().includes(q))&&(!activeEdit||activeEdit.terms.some(t=>(d.name+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(t))));$("#resultCount").textContent=(activeEdit?activeEdit.label+" · ":"")+a.length+" designs";$("#catalog").innerHTML=a.map(d=>`<article class="card ${d.id===selected.id?"selected":""}" data-id="${d.id}"><div class="card-photo"><img src="${IMAGES[d.file]}" alt="${d.name} — illustrative design concept" loading="lazy" decoding="async"><span class="ai-visual-tag">DESIGN CONCEPT</span><button class="card-zoom" type="button" data-zoom="${d.file}" aria-label="Enlarge ${d.name}">↗</button></div><h3>${d.name}</h3><p>${d.region} · ${d.style}</p><div class="card-row"><span class="chip">${d.gem}</span><span class="price">${(d.quoteOnly?'Quote on request':money(calcLocal(d),country))}</span></div><button class="btn card-try" type="button" data-try="${d.id}">Try On ↗</button></article>`).join("")||'<div class="empty">No matching designs.</div>';$$(".card").forEach(c=>c.onclick=e=>{if(e.target.closest(".card-zoom"))return;if(e.target.closest(".card-try")){selectDesign(catalog.find(d=>d.id===c.dataset.id));go("tryon");return;}selectDesign(catalog.find(d=>d.id===c.dataset.id),true)})}
 $("#search").oninput=()=>{activeEdit=null;renderCatalog()};$$(".filter").forEach(b=>b.onclick=()=>{$$(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;activeEdit=null;renderCatalog()});
 function score(d){let s=0,t=$("#type").value,r=$("#region").value,g=$("#gem").value,b=$("#brief").value.toLowerCase();if(t!=="Any"&&d.type===t)s+=5;if(r!=="Any"&&d.region===r)s+=6;if(g!=="Any"&&d.gem.toLowerCase().includes(g.toLowerCase()))s+=4;for(const w of b.split(/\s+/)){if(w.length>2&&(d.name+" "+d.region+" "+d.style+" "+d.gem+" "+d.keywords).toLowerCase().includes(w))s+=1}return s}
@@ -375,7 +370,18 @@ function isFaceItem(){let t=category();return t.includes('ear')||t.includes('nec
 function isHandItem(){let t=category();return t.includes('ring')||t.includes('bracelet')||t.includes('bangle')}
 function sourceGeometry(source){const iw=source.videoWidth||source.naturalWidth,ih=source.videoHeight||source.naturalHeight,cw=box.clientWidth,ch=box.clientHeight;if(!iw||!ih||!cw||!ch)return null;const scale=Math.min(cw/iw,ch/ih),rw=iw*scale,rh=ih*scale,ox=(cw-rw)/2,oy=(ch-rh)/2;return {rw,rh,cw,ch,toX:v=>((photoMode?v:1-v)*rw+ox)/cw*100,toY:v=>(v*rh+oy)/ch*100}}
 function centerTry(){manual=false;hideRing();status('Show your hand to the camera, or upload a photo.')}
-$$('.mode').forEach(b=>b.onclick=()=>{centerTry();if(photoMode)analysePhoto()});
+function tryGroup(d){let t=(d?.type||'').toLowerCase();if(t.includes('ear'))return 'earring';if(t.includes('neck')||t.includes('pendant'))return 'necklace';if(t.includes('bracelet')||t.includes('bangle'))return 'bracelet';return 'ring'}
+function populateTryDesigns(preferSelected=true){
+ const type=$('#tryType').value, list=catalog.filter(d=>tryGroup(d)===type), sel=$('#tryDesign');
+ sel.innerHTML=list.map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
+ if(preferSelected&&list.some(d=>d.id===selected?.id))sel.value=selected.id;
+ else if(list[0]){sel.value=list[0].id;selected=list[0];}
+ $('#fingerWrap').style.display=type==='ring'?'block':'none';
+ $('#fitHint').textContent=type==='ring'?'Show your full hand. The selected ring will snap to your chosen finger.':type==='earring'?'Show your full face and both ears. The earring will align to your ear area.':type==='necklace'?'Show your face, neck and upper chest. The necklace will center below your neck.':'Show your hand and wrist. The bracelet will align around your wrist.';
+ if(selected)onRingSelected();manual=false;hideRing();if(photoMode)analysePhoto();
+}
+$('#tryType').onchange=()=>populateTryDesigns(false);
+$('#tryDesign').onchange=e=>{const d=catalog.find(x=>x.id===e.target.value);if(d){selected=d;onRingSelected();manual=false;hideRing();if(photoMode)analysePhoto();}};
 $("#sizeRange").oninput=e=>{
  if(!ensureRing())return;manual=true;
  position(parseFloat(overlay.style.left)||50,parseFloat(overlay.style.top)||55,+e.target.value,angle,oh/ow)
@@ -446,7 +452,7 @@ async function track(image){
 }
 async function loop(t){
  if(!tracking||!stream)return;
- if(t-lastFrame>130&&video.readyState>=2){lastFrame=t;await track(video)}
+ if(t-lastFrame>130&&video.readyState>=2){lastFrame=t;if(isFaceItem()){if(await loadFaceTracker())await faceModel.send({image:video})}else{if(await loadTracker())await track(video)}}
  if(tracking)requestAnimationFrame(loop)
 }
 function stopCam(){
@@ -464,8 +470,8 @@ $("#cameraBtn").onclick=async function(){
   stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}},audio:false});
   video.srcObject=stream;await video.play();
   this.textContent='Stop Camera';manual=false;tracking=true;hideRing();
-  status('Camera on · loading hand tracker…');
-  if(await loadTracker())requestAnimationFrame(loop)
+  status(isFaceItem()?'Camera on · loading face/neck tracker…':'Camera on · loading hand/wrist tracker…');
+  if(isFaceItem()?await loadFaceTracker():await loadTracker())requestAnimationFrame(loop)
  }catch(e){stopCam();status('Allow camera access in Safari or Chrome.')}
 };
 async function loadFaceTracker(){
@@ -495,7 +501,7 @@ async function loadFaceTracker(){
 async function analysePhoto(){
  if(!photoMode||!photo.complete||!photo.naturalWidth||!ensureRing())return;
  manual=false;hideRing();
- if(await loadTracker())await track(photo)
+ if(isFaceItem()){if(await loadFaceTracker())await faceModel.send({image:photo})}else{if(await loadTracker())await track(photo)}
 }
 $("#photoInput").onchange=e=>{
  let f=e.target.files[0];if(!f)return;
@@ -503,7 +509,7 @@ $("#photoInput").onchange=e=>{
  let url=URL.createObjectURL(f);
  photo.onload=()=>{URL.revokeObjectURL(url);analysePhoto()};
  photo.src=url;photo.style.display='block';video.style.display='none';
- status('Photo loaded · locating hand…')
+ status(isFaceItem()?'Photo loaded · locating face/neck…':'Photo loaded · locating hand/wrist…')
 };
 $("#snapshotBtn").onclick=()=>{
  if(!photoMode&&!stream){toast('Start camera or upload a photo');return}
@@ -570,7 +576,7 @@ $('#sigMatch').onclick=()=>{
 $('#enquireBtn').onclick=()=>{
  const subject='ZEVORA jewellery enquiry — '+selected.name;
  const body='Hello ZEVORA,\n\nI am interested in '+selected.name+'.\nDisplayed indicative price: '+$('#studioPrice').textContent+'\nCountry: '+$('#countrySelect').selectedOptions[0].textContent+'\n\nPlease confirm availability, specifications and final pricing.\n\nThank you.';
- location.href='mailto:'+encodeURIComponent(window.ZEVORA_CONTACT.email||'')+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ location.href='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 };
 function showZoom(src){$('#zoomImg').src=src;$('#zoomModal').hidden=false;document.body.style.overflow='hidden'}
 function closeZoom(){$('#zoomModal').hidden=true;document.body.style.overflow=''}
@@ -607,7 +613,7 @@ function skBlob(){return new Promise(resolve=>skCanvas.toBlob(resolve,'image/png
 $('#skShare').onclick=async()=>{const blob=await skBlob();if(!blob)return;const file=new File([blob],'ZEVORA-my-jewellery-sketch.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})&&navigator.share){try{await navigator.share({files:[file],title:'My ZEVORA jewellery sketch',text:'My custom jewellery idea'});$('#skStatus').textContent='Share sheet opened.'}catch(e){if(e.name!=='AbortError')$('#skStatus').textContent='Sharing unavailable; use Download sketch PNG.'}}else{skDownload();$('#skStatus').textContent='Direct file sharing is unavailable in this browser. PNG downloaded instead.'}};
 function skText(){return 'ZEVORA — CUSTOM JEWELLERY DESIGN ENQUIRY\n\nJewellery: '+$('#skType').value+'\nMetal: '+$('#skMetal').value+'\nGemstone: '+$('#skStone').value+'\nBudget: '+$('#skBudget').value+'\nDesign vision: '+($('#skNotes').value.trim()||'See attached sketch')+'\nName: '+($('#skName').value.trim()||'Not supplied')+'\nReply email: '+($('#skEmail').value.trim()||'Not supplied')+'\n\nI have a jewellery sketch to share. Please advise whether this design can be made and provide a quotation.\n\n[PLEASE ATTACH THE DOWNLOADED SKETCH PNG TO THIS EMAIL]'}
 $('#skBrief').onclick=async()=>{const v=skText();try{await navigator.clipboard.writeText(v);$('#skStatus').textContent='Design brief copied.'}catch(e){const t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();$('#skStatus').textContent='Design brief copied where supported.'}};
-$('#skRequest').onclick=()=>{skDownload();if(skRenderUrl)skDownloadRender();const subj='ZEVORA custom jewellery sketch — '+$('#skType').value;$('#skStatus').textContent='Sketch downloaded. Attach the sketch and any generated concept to the email that opens. No enquiry has been sent yet.';window.location.href='mailto:'+encodeURIComponent(window.ZEVORA_CONTACT.email||'')+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(skText())};
+$('#skRequest').onclick=()=>{skDownload();if(skRenderUrl)skDownloadRender();const subj='ZEVORA custom jewellery sketch — '+$('#skType').value;$('#skStatus').textContent='Sketch downloaded. Attach the sketch and any generated concept to the email that opens. No enquiry has been sent yet.';window.location.href='mailto:?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(skText())};
 
 
 // Sketch-to-render is a real, opt-in server API. No secret key is embedded in HTML.
@@ -676,217 +682,7 @@ document.getElementById('genDownload').addEventListener('click',()=>{if(!genPass
  document.getElementById('productSave').addEventListener('click',()=>{selectDesign(product);saveDesign();document.getElementById('productSave').textContent='Saved ✓'});
  document.getElementById('productEnquire').addEventListener('click',()=>{selectDesign(product);hide();document.getElementById('quoteBtn').click()});
 })();
-</script>
-<script>
-/* ZEVORA enhancements */
-(function(){
- const C=window.ZEVORA_CONTACT||{};
- /* broken-image fallback + lazy loading */
- const ph="data:image/svg+xml;utf8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#efe7d8"/><text x="200" y="158" font-family="Georgia,serif" font-size="22" fill="#a08850" text-anchor="middle">ZEVORA</text></svg>');
- function fix(img){ if(!img.loading)img.loading='lazy'; if(!img.alt)img.alt='ZEVORA jewellery'; if(!img.dataset.fx){img.dataset.fx=1;img.addEventListener('error',()=>{if(img.src!==ph)img.src=ph},{once:false});} }
- function scan(){document.querySelectorAll('img').forEach(fix)}
- scan(); new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
- /* WhatsApp button when configured */
- if(C.whatsapp){const a=document.createElement('a');a.href='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent('Hello ZEVORA, I would like to enquire about a piece.');a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','Chat on WhatsApp');a.textContent='WhatsApp';a.style.cssText='position:fixed;right:16px;bottom:16px;z-index:60;background:#1f8a4c;color:#fff;padding:12px 18px;border-radius:999px;font:600 14px system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)';document.body.appendChild(a)}
- /* AI render button reflects backend availability */
- fetch('/api/status').then(r=>r.json()).then(j=>{if(!j.enabled)off()}).catch(off);
- function off(){const b=document.getElementById('skGenerate');if(b){b.disabled=true;b.title='AI render is not enabled yet';b.textContent='AI render coming soon - download your sketch instead';}}
- /* warn when no contact email set (console only) */
- if(!C.email)console.info('ZEVORA: set ZEVORA_CONTACT.email so enquiries have a recipient.');
-})();
-</script>
-<script>
-/* ZEVORA 14: try-on engine upgrade + AI stylist */
-(function(){
- const $=s=>document.querySelector(s);
- const CUT=new Set(["arabic_filigree_ring", "celtic_knot_ring", "emerald_halo", "emerald_ring", "family_original_1_01", "family_original_1_02", "family_original_1_03", "family_original_1_04", "family_original_1_05", "family_original_1_06", "family_original_1_12", "gold_bangle", "gold_earrings", "heritage_concept_01", "heritage_concept_02", "heritage_concept_03", "heritage_concept_04", "heritage_concept_05", "heritage_concept_06", "heritage_concept_07", "heritage_concept_08", "heritage_concept_09", "heritage_concept_10", "heritage_concept_11", "heritage_concept_12", "heritage_concept_13", "heritage_concept_14", "heritage_concept_15", "heritage_concept_16", "heritage_concept_17", "heritage_concept_18", "heritage_earrings", "kundan_ring", "mens_ring", "minimal_necklace", "modern_solitaire", "oval_halo", "pearl_drop_earrings", "royal_temple_ring", "sapphire_bracelet", "sapphire_ring", "solitaire_elegance", "temple_necklace"]), SINGLE=new Set(["gold_earrings", "heritage_concept_13", "heritage_concept_14", "heritage_concept_15", "heritage_concept_16", "heritage_concept_17", "heritage_concept_18", "heritage_earrings", "pearl_drop_earrings"]);
- const base=d=>d.file.replace(/\.(jpg|png)$/,'');
- const isEar=d=>((d&&d.type)||'').toLowerCase().includes('ear');
- /* every design with a transparent cutout can be tried on */
- window.tryImage=function(d){
-  if(!d)return null;const n=base(d);if(!CUT.has(n))return null;
-  return '/cutouts/'+n+((isEar(d)&&SINGLE.has(n))?'_single':'')+'.webp';
- };
- window.ensureRing=function(){
-  if(suitable())return true;
-  hideRing();status('Try-on is not available for this original photo yet. Choose a design with a clean cutout, or send us a clear photo of the piece.');return false;
- };
- /* second overlay for earring pairs */
- const o1=$('#overlay'),i1=$('#overlayImg');
- const o2=o1.cloneNode(true);o2.id='overlay2';o2.style.display='none';o2.style.pointerEvents='none';
- const i2=o2.querySelector('img');i2.id='overlayImg2';o1.after(o2);
- [i1,i2].forEach(i=>{i.style.filter='drop-shadow(0 2px 3px rgba(0,0,0,.35))';i.style.pointerEvents='none';i.draggable=false});
- function setEl(el,x,y,w,h,a,flip,smooth){
-  const s=el._s;
-  if(smooth&&s&&el.style.display!=='none'){
-   const k=.45,da=((a-s.a+540)%360)-180;
-   x=s.x+(x-s.x)*k;y=s.y+(y-s.y)*k;w=s.w+(w-s.w)*k;h=s.h+(h-s.h)*k;a=s.a+da*k;
-  }
-  el._s={x,y,w,h,a,flip};
-  el.style.left=x+'%';el.style.top=y+'%';el.style.width=w+'px';el.style.height=h+'px';
-  el.style.transform='translate(-50%,-50%) rotate('+a+'deg)'+(flip?' scaleX(-1)':'');
-  el.style.display='block';
- }
- const hide1=window.hideRing;
- window.hideRing=function(){o1.style.display='none';o2.style.display='none';o1._s=null;o2._s=null};
- /* primary overlay: natural aspect ratio + smoothing while auto-tracking */
- window.position=function(x,y,w,a,aspect){
-  a=a||0;aspect=aspect||.68;
-  if(i1.naturalWidth)aspect=i1.naturalHeight/i1.naturalWidth;
-  const W=Math.max(24,Math.min(260,w)),H=W*aspect;
-  setEl(o1,x,y,W,H,a,false,tracking&&!manual);
-  ow=W;oh=H;angle=a;
-  $('#sizeRange').value=Math.max(60,Math.min(360,W));
-  $('#rotRange').value=Math.max(-180,Math.min(180,a));
- };
- const _sel=window.onRingSelected;
- window.onRingSelected=function(){
-  _sel();o2.style.display='none';o2._s=null;
-  const u=tryImage(selected);if(u)i2.src=u;
- };
- /* real face tracking for earrings, pendants and necklaces */
- let fm=null,fmReady=false,faceMiss=0;
- async function loadFace(){
-  if(fmReady)return true;
-  if(!window.FaceMesh){status('Face tracker did not load. Check your internet connection and reload.');return false}
-  try{
-   fm=new FaceMesh({locateFile:f=>'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/'+f});
-   fm.setOptions({maxNumFaces:1,refineLandmarks:true,minDetectionConfidence:.6,minTrackingConfidence:.55});
-   fm.onResults(onFace);fmReady=true;return true;
-  }catch(e){status('Face tracker unavailable. Check your internet connection.');return false}
- }
- function onFace(r){
-  if(!suitable()||manual||!isFaceItem())return;
-  const f=r.multiFaceLandmarks&&r.multiFaceLandmarks[0];
-  if(!f){if(++faceMiss>5){hideRing();status('No face detected · keep your face and neck in view.')}return}
-  faceMiss=0;
-  const g=sourceGeometry(photoMode?photo:video);if(!g)return;
-  const P=p=>({x:g.toX(p.x),y:g.toY(p.y)}),px=(dx,dy)=>Math.hypot(dx/100*g.cw,dy/100*g.ch);
-  let A=P(f[234]),B=P(f[454]);if(A.x>B.x){const t=A;A=B;B=t}
-  const faceW=px(B.x-A.x,B.y-A.y);
-  const roll=Math.atan2((B.y-A.y)/100*g.ch,(B.x-A.x)/100*g.cw)*180/Math.PI;
-  const aspect=i1.naturalWidth?i1.naturalHeight/i1.naturalWidth:1.2;
-  if(category().includes('ear')){
-   const lob=(a,b)=>({x:a.x+(b.x-a.x)*.30,y:a.y+(b.y-a.y)*.30});
-   let LA=P(f[132]),LB=P(f[361]);if(LA.x>LB.x){const t=LA;LA=LB;LB=t}
-   const eL=lob(A,LA),eR=lob(B,LB);
-   const drop=aspect>1.3,W=Math.max(22,Math.min(120,drop?faceW*.34/aspect:faceW*.20)),H=W*aspect;
-   const yOff=(H/2)/g.ch*100;
-   setEl(o1,eL.x,eL.y+yOff,W,H,roll,false,tracking);
-   setEl(o2,eR.x,eR.y+yOff,W,H,roll,true,tracking);
-   ow=W;oh=H;angle=roll;
-   status('Face detected · earrings placed on both ears. Turn your head to check the fit.');
-  }else{
-   const chin=P(f[152]),fore=P(f[10]);
-   const cx=(A.x+B.x)/2;
-   const W=Math.max(95,Math.min(300,faceW*.92)),Hn=W*aspect;
-   const ny=chin.y+(chin.y-fore.y)*.14+(Hn/2)/g.ch*100*.85;
-   o2.style.display='none';
-   position(cx,ny,W,roll*.8,aspect);
-   status('Face and neck detected · necklace placed automatically. Drag, resize or rotate to fine-tune.');
-  }
- }
- window.track=async function(image){
-  if(!suitable())return;
-  if(isFaceItem()){
-   if(busy)return;busy=true;
-   try{if(await loadFace())await fm.send({image})}
-   catch(e){hideRing();status('Face tracking interrupted. Reload and try again.')}
-   finally{busy=false}
-   return;
-  }
-  if(!ready||busy)return;busy=true;
-  try{await handsModel.send({image})}
-  catch(e){hideRing();status('Hand tracking interrupted. Reload and try again.')}
-  finally{busy=false}
- };
- window.analysePhoto=async function(){
-  if(!photoMode||!photo.complete||!photo.naturalWidth||!ensureRing())return;
-  manual=false;hideRing();
-  if(isFaceItem()){await track(photo);return}
-  if(await loadTracker())await track(photo);
- };
- /* photo export includes every visible piece (both earrings) */
- $('#snapshotBtn').onclick=function(){
-  if(!photoMode&&!stream){toast('Start the camera or upload a photo first');return}
-  if(o1.style.display==='none'){toast('Show your hand or face so the piece can be positioned');return}
-  const source=photoMode?photo:video,c=$('#exportCanvas'),ctx=c.getContext('2d'),r=box.getBoundingClientRect();
-  c.width=source.videoWidth||source.naturalWidth;c.height=source.videoHeight||source.naturalHeight;
-  if(!c.width||!c.height){toast('Photo not ready');return}
-  const iw=c.width,ih=c.height,sc=Math.min(r.width/iw,r.height/ih),rw=iw*sc,rh=ih*sc,ox=(r.width-rw)/2,oy=(r.height-rh)/2;
-  ctx.save();if(!photoMode){ctx.translate(c.width,0);ctx.scale(-1,1)}ctx.drawImage(source,0,0,c.width,c.height);ctx.restore();
-  const sx=c.width/rw,sy=c.height/rh;
-  [[o1,i1],[o2,i2]].forEach(([el,im])=>{
-   if(el.style.display==='none'||!el._s||!im.complete||!im.naturalWidth)return;
-   const s=el._s,x=(s.x/100*r.width-ox)*sx,y=(s.y/100*r.height-oy)*sy;
-   ctx.save();ctx.translate(x,y);ctx.rotate(s.a*Math.PI/180);if(s.flip)ctx.scale(-1,1);
-   ctx.shadowColor='rgba(0,0,0,.4)';ctx.shadowBlur=6;
-   ctx.drawImage(im,-s.w*sx/2,-s.h*sy/2,s.w*sx,s.h*sy);ctx.restore();
-  });
-  c.toBlob(b=>{if(!b)return;const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ZEVORA-try-on.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Try-on photo saved')},'image/png');
- };
- /* ---------- AI stylist ---------- */
- const cs=document.createElement('style');
- cs.textContent='#zvBtn{position:fixed;left:16px;bottom:16px;z-index:60;background:#29231f;color:#f4ead2;border:1px solid #b8893f;padding:12px 18px;border-radius:999px;font:600 14px system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}#zvPanel{position:fixed;left:16px;bottom:70px;z-index:61;width:min(370px,92vw);max-height:72vh;display:none;flex-direction:column;background:#fffdf8;color:#29231f;border:1px solid #d9c9a6;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.3);font:14px/1.5 system-ui,sans-serif;overflow:hidden}#zvPanel.open{display:flex}#zvHead{padding:12px 14px;background:#29231f;color:#f4ead2;display:flex;justify-content:space-between;align-items:center}#zvHead small{display:block;font-size:11px;opacity:.75}#zvMsgs{padding:12px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}.zvm{padding:9px 12px;border-radius:12px;max-width:92%;white-space:pre-wrap}.zvu{align-self:flex-end;background:#efe3c7}.zva{align-self:flex-start;background:#f6f1e6;border:1px solid #e6dbc0}.zvc{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #e6dbc0;border-radius:12px;padding:8px}.zvc img{width:64px;height:64px;object-fit:cover;border-radius:8px;background:#efe7d8}.zvc b{display:block;font-size:13px}.zvc span{font-size:12px;opacity:.75}.zvc button,.zvchip{border:1px solid #b8893f;background:#fff;color:#29231f;border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer;margin:4px 6px 0 0}#zvChips{padding:0 12px 8px}#zvForm{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #e6dbc0}#zvIn{flex:1;border:1px solid #d9c9a6;border-radius:10px;padding:9px;font:inherit;background:#fff;color:#29231f}#zvSend{background:#29231f;color:#f4ead2;border:0;border-radius:10px;padding:0 14px;cursor:pointer}';
- document.head.appendChild(cs);
- const btn=document.createElement('button');btn.id='zvBtn';btn.type='button';btn.textContent='✦ AI Stylist';btn.setAttribute('aria-haspopup','dialog');
- const pan=document.createElement('div');pan.id='zvPanel';pan.setAttribute('role','dialog');pan.setAttribute('aria-label','ZEVORA AI Stylist');
- pan.innerHTML='<div id="zvHead"><div><b>ZEVORA Stylist</b><small id="zvMode">Checking…</small></div><button type="button" id="zvClose" aria-label="Close" style="background:none;border:0;color:inherit;font-size:20px;cursor:pointer">×</button></div><div id="zvMsgs"></div><div id="zvChips"></div><form id="zvForm"><input id="zvIn" maxlength="400" placeholder="Describe what you are looking for" aria-label="Message"><button id="zvSend" type="submit">Send</button></form>';
- document.body.appendChild(btn);document.body.appendChild(pan);
- const msgs=$('#zvMsgs'),input=$('#zvIn');let aiOn=false,hist=[],busyAI=false;
- fetch('/api/status').then(r=>r.json()).then(j=>{aiOn=!!j.stylist;$('#zvMode').textContent=aiOn?'AI stylist · suggestions from the ZEVORA collection':'Quick match · smart search of the collection'}).catch(()=>{$('#zvMode').textContent='Quick match · smart search of the collection'});
- ['Bridal necklace','Emerald ring for an anniversary','Everyday minimal earrings','Bold statement gold ring','Something with pearls'].forEach(t=>{const c=document.createElement('button');c.type='button';c.className='zvchip';c.textContent=t;c.onclick=()=>ask(t);$('#zvChips').appendChild(c)});
- function add(text,cls){const d=document.createElement('div');d.className='zvm '+cls;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
- function cards(ids){
-  ids.forEach(id=>{const d=catalog.find(x=>x.id===id);if(!d)return;
-   const w=document.createElement('div');w.className='zvc';
-   const im=document.createElement('img');im.src=IMAGES[d.file];im.alt=d.name;im.loading='lazy';
-   const t=document.createElement('div');const b=document.createElement('b');b.textContent=d.name;const sp=document.createElement('span');sp.textContent=d.type+' · '+d.gem;t.append(b,sp,document.createElement('br'));
-   const v=document.createElement('button');v.type='button';v.textContent='View';v.onclick=()=>{selectDesign(d,true);pan.classList.remove('open')};
-   const tr=document.createElement('button');tr.type='button';tr.textContent=tryImage(d)?'Try on':'Try on (n/a)';tr.disabled=!tryImage(d);tr.onclick=()=>{selectDesign(d);pan.classList.remove('open');document.getElementById('tryon').scrollIntoView({behavior:'smooth'})};
-   t.append(v,tr);w.append(im,t);msgs.appendChild(w)});
-  msgs.scrollTop=msgs.scrollHeight;
- }
- const SYN={ring:['ring','rings','solitaire','engagement','band'],necklace:['necklace','pendant','chain','choker'],earrings:['earring','earrings','studs','stud','drops','drop','jhumka','hoops','hoop'],bracelet:['bracelet','bangle','bangles','cuff']};
- function local(q){
-  q=q.toLowerCase();const words=q.split(/[^a-z]+/).filter(w=>w.length>2);
-  let want=null;for(const k in SYN)if(SYN[k].some(w=>q.includes(w)))want=k;
-  const extra={bridal:'royal heritage necklace kundan temple',wedding:'royal heritage necklace kundan temple',minimal:'modern icons minimal everyday simple',everyday:'modern icons minimal simple',simple:'minimal modern',bold:'sculptural gold statement',statement:'sculptural gold statement',anniversary:'diamond halo emerald solitaire',men:'mens signet unisex',mens:'mens signet unisex',luxury:'diamond royal',traditional:'heritage temple kundan',modern:'modern icons solitaire',colour:'emerald ruby sapphire',color:'emerald ruby sapphire'};
-  let extraTxt=words.map(w=>extra[w]||'').join(' ');
-  const toks=[...new Set(words.concat(extraTxt.split(' ').filter(Boolean)))];
-  const scored=catalog.map(d=>{
-   const hay=(d.name+' '+d.type+' '+d.gem+' '+d.style+' '+d.region+' '+d.material+' '+(d.keywords||'')).toLowerCase();
-   let s=0;toks.forEach(t=>{if(hay.includes(t))s+=2});
-   if(want){const ty=d.type.toLowerCase();s+=(ty.includes(want.slice(0,-1))||(want==='earrings'&&ty.includes('ear')))?6:-3}
-   if(!d.id.startsWith('family-')&&!d.id.startsWith('heritage-concept'))s+=1;
-   return{d,s}}).sort((a,b)=>b.s-a.s);
-  return scored.filter(x=>x.s>0).slice(0,3).map(x=>x.d.id);
- }
- async function ask(text){
-  text=(text||'').trim();if(!text||busyAI)return;busyAI=true;$('#zvSend').disabled=true;
-  add(text,'zvu');input.value='';hist.push({role:'user',content:text});
-  const wait=add('Thinking…','zva');
-  try{
-   if(aiOn){
-    const r=await fetch('/api/stylist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-8)})});
-    const j=await r.json();if(!r.ok)throw new Error(j.error||'AI stylist unavailable');
-    wait.textContent=j.reply;hist.push({role:'assistant',content:j.reply});cards((j.picks||[]).slice(0,3));
-   }else{
-    const ids=local(text);
-    if(ids.length){wait.textContent='Here are the closest matches in the ZEVORA collection. Tap View to see details and pricing, or Try on to see it on you.';cards(ids)}
-    else wait.textContent='I could not find a close match. Try naming a type (ring, necklace, earrings, bracelet), a stone (emerald, ruby, sapphire, pearl, diamond) or an occasion (bridal, everyday).';
-    hist.push({role:'assistant',content:wait.textContent});
-   }
-  }catch(e){
-   const ids=local(text);wait.textContent=(aiOn?'The AI stylist is busy right now, so here is a quick match instead. ':'')+(ids.length?'Closest matches:':'Try naming a type, stone or occasion.');
-   if(ids.length)cards(ids);
-  }
-  busyAI=false;$('#zvSend').disabled=false;
- }
- btn.onclick=()=>{pan.classList.toggle('open');if(pan.classList.contains('open')){if(!msgs.children.length)add('Hello, I am the ZEVORA stylist. Tell me what you are looking for, for example "an emerald ring for our anniversary" or "bridal necklace".','zva');input.focus()}};
- $('#zvClose').onclick=()=>pan.classList.remove('open');
- $('#zvForm').onsubmit=e=>{e.preventDefault();ask(input.value)};
- pan.addEventListener('keydown',e=>{if(e.key==='Escape')pan.classList.remove('open')});
-})();
+
+try{$('#tryType').value=tryGroup(selected);populateTryDesigns(true);}catch(e){}
 </script>
 </body></html>
