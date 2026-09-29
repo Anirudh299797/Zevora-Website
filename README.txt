@@ -1,7 +1,5 @@
-AUREVA 20 COMPLETE
+AUREVA website update
 
-Rebranded from ZEVORA to AUREVA.
-Positioning: Fine Jewellery — Born from Gold. Made for Generations.
-Family jewellery heritage: since 1985. AUREVA is presented as the new global chapter, not as a claim that the AUREVA brand itself existed in 1985.
+Main update: Our Story now begins in Jammu, India in 1985 and uses Raani Haar as the main heritage image.
 
-Includes the unique catalogue and Try-On assets from ZEVORA 19.
+Deployment: replace index.html in the existing GitHub Desktop Zevora-Website repository, commit to main, then Push origin. Render should redeploy automatically.
