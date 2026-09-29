@@ -1,7 +1,4 @@
-AUREVA 20 COMPLETE
-
-Rebranded from ZEVORA to AUREVA.
-Positioning: Fine Jewellery — Born from Gold. Made for Generations.
-Family jewellery heritage: since 1985. AUREVA is presented as the new global chapter, not as a claim that the AUREVA brand itself existed in 1985.
-
-Includes the unique catalogue and Try-On assets from ZEVORA 19.
+AUREVA 22 LUXURY
+Catalogue uses original/full JPG presentation assets. Transparent PNG cutouts are reserved for virtual Try-On only.
+Our Story: Jammu, India · 1985. Raani Haar is presented as a family archive image rather than a transparent cutout.
+Deploy: keep index.html, JPG assets, and cutouts/ together at the repository root.
