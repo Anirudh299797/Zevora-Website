@@ -1,1 +1,7 @@
-ZEVORA RING FIRST: Upload all files in this ZIP (not the ZIP itself) to the root of your EXISTING GitHub repository. Commit index.html and all JPG/PNG files. Existing Render site auto-deploys or use Manual Deploy > Deploy latest commit. Live ring tracking needs HTTPS, camera permission and internet for MediaPipe. This is landmark-assisted overlay, not photorealistic generative AI or physically accurate AR. Existing product JPGs are not new HD originals. Photo try-on is local and illustrative. Admin settings remain browser-local demo settings, not secure centralized pricing.
+AUREVA 20 COMPLETE
+
+Rebranded from ZEVORA to AUREVA.
+Positioning: Fine Jewellery — Born from Gold. Made for Generations.
+Family jewellery heritage: since 1985. AUREVA is presented as the new global chapter, not as a claim that the AUREVA brand itself existed in 1985.
+
+Includes the unique catalogue and Try-On assets from ZEVORA 19.
